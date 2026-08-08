@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { FaPaperPlane, FaRobot, FaTimes } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi2";
 import { AnimatePresence, motion } from "framer-motion";
 import { company, productCategories } from "../data/siteData";
 
@@ -80,6 +79,36 @@ const getReply = (raw) => {
   return fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
 };
 
+/* ------------------------------------------------------------------
+   AI sparkle icon — a four-point sparkle sitting inside a broken
+   "orbit" ring, matching the reference "Ask AI" pill icon. Pure SVG,
+   inherits color via currentColor so it can be recolored/animated. */
+const AiSparkleIcon = ({ size = 16, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      r="9"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeDasharray="34 8 5 8"
+      opacity="0.9"
+    />
+    <path
+      d="M12 6.5 L13.15 10.35 L17 11.5 L13.15 12.65 L12 16.5 L10.85 12.65 L7 11.5 L10.85 10.35 Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 /* Three-dot "assistant is typing" indicator */
 const TypingIndicator = () => (
   <div className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-sm bg-mydex-cream px-4 py-3">
@@ -153,48 +182,55 @@ const AIAssistant = () => {
 
   return (
     <>
-      {/* Toggle button — AI-styled with sparkle badge + online pulse */}
+      {/* Toggle button — dark "Ask AI" pill with animated sparkle icon */}
       <motion.button
         onClick={() => setOpen((v) => !v)}
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.94 }}
-        className="fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-mydex-green text-mydex-gold shadow-premium"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.96 }}
+        className="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 rounded-full bg-[#0b0d10] px-5 py-3.5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)] ring-1 ring-white/10"
         aria-label="Mydex AI Assistant"
       >
-        <AnimatePresence mode="wait" initial={false}>
-          {open ? (
-            <motion.span
-              key="close"
-              initial={{ opacity: 0, rotate: -90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: 90 }}
-              transition={{ duration: 0.2 }}
-            >
-              <FaTimes size={20} />
-            </motion.span>
-          ) : (
-            <motion.span
-              key="bot"
-              initial={{ opacity: 0, rotate: 90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: -90 }}
-              transition={{ duration: 0.2 }}
-            >
-              <FaRobot size={22} />
-            </motion.span>
-          )}
-        </AnimatePresence>
+        <span className="relative flex h-5 w-5 items-center justify-center text-mydex-gold">
+          <AnimatePresence mode="wait" initial={false}>
+            {open ? (
+              <motion.span
+                key="close"
+                initial={{ opacity: 0, rotate: -90 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 90 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center justify-center"
+              >
+                <FaTimes size={15} />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="sparkle"
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1, rotate: 360 }}
+                exit={{ opacity: 0, scale: 0.6 }}
+                transition={{
+                  opacity: { duration: 0.2 },
+                  scale: { duration: 0.2 },
+                  rotate: { duration: 6, repeat: Infinity, ease: "linear" },
+                }}
+                className="flex items-center justify-center"
+              >
+                <AiSparkleIcon size={19} />
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </span>
 
-        {/* Sparkle "AI" badge */}
-        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-mydex-gold text-mydex-green shadow">
-          <HiSparkles size={11} />
+        <span className="text-[15px] font-medium tracking-wide">
+          {open ? "Close" : "Ask AI"}
         </span>
 
         {/* Online pulse dot */}
         {!open && (
-          <span className="absolute bottom-0 right-0 flex h-3.5 w-3.5">
+          <span className="absolute -right-1 -top-1 flex h-3 w-3">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-400" />
+            <span className="relative inline-flex h-3 w-3 rounded-full border-2 border-[#0b0d10] bg-emerald-400" />
           </span>
         )}
       </motion.button>
@@ -211,7 +247,7 @@ const AIAssistant = () => {
             {/* Header */}
             <div className="flex items-center gap-3 bg-mydex-green px-4 py-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-mydex-gold/15 text-mydex-gold">
-                <FaRobot size={16} />
+                <AiSparkleIcon size={17} />
               </div>
               <div className="leading-tight">
                 <p className="text-sm font-semibold text-mydex-gold">Mydex AI Assistant</p>

@@ -1,4 +1,4 @@
-import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { company, productCategories } from "../data/siteData";
@@ -95,14 +95,28 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative text-white bg-cover bg-center bg-no-repeat"
+      className="relative overflow-hidden text-white bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `linear-gradient(rgba(27, 65, 54, 0.85), rgba(27, 65, 54, 0.85)), url(${footerBg})`,
         backgroundAttachment: "fixed",
       }}
     >
+      {/* "EST. 1956" watermark — huge, faint, heritage-marking text sitting
+          in the empty background space behind the footer content. Purely
+          decorative, so it's aria-hidden and ignores pointer events. */}
+      <motion.p
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+        className="pointer-events-none absolute -bottom-6 right-0 z-0 select-none whitespace-nowrap font-serif text-[18vw] font-bold leading-none text-mydex-gold/[0.06] sm:text-[14vw] lg:right-6 lg:text-[10vw]"
+      >
+        EST. 1956
+      </motion.p>
+
       {/* Main Footer Content */}
-      <div className="container-lux relative grid gap-10 px-4 py-16 md:grid-cols-2 md:px-8 lg:grid-cols-5">
+      <div className="container-lux relative z-10 grid gap-10 px-4 py-16 md:grid-cols-2 md:px-8 lg:grid-cols-5">
         {/* Brand Section */}
         <motion.div
           className="lg:col-span-2"
@@ -136,6 +150,24 @@ const Footer = () => {
           >
             Global importer & exporter of premium dry fruits, spices, herbs, seeds, pulses and agro commodities.
           </motion.p>
+
+          {/* 5-star rating badge — quick trust signal under the brand blurb */}
+          <motion.div
+            className="mt-4 flex items-center gap-2"
+            variants={linkVariants}
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="flex gap-0.5 text-mydex-gold">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <FaStar key={i} size={13} />
+              ))}
+            </div>
+            <span className="text-sm font-semibold text-white">4.9/5</span>
+            <span className="text-xs text-white/60">· 1000+ Global Clients</span>
+          </motion.div>
 
           <motion.div
             className="mt-5 flex gap-3"
@@ -320,7 +352,7 @@ const Footer = () => {
 
       {/* Bottom Section - Copyright & Credits */}
       <motion.div
-        className="relative border-t border-white/10 px-4 py-4 text-xs text-white/60 md:px-8"
+        className="relative z-10 border-t border-white/10 px-4 py-4 text-xs text-white/60 md:px-8"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -354,7 +386,7 @@ const Footer = () => {
 
       {/* Made by Creador Designs */}
       <motion.div
-        className="relative border-t border-white/10 px-4 py-3 text-center text-xs text-white/50 md:px-8"
+        className="relative z-10 border-t border-white/10 px-4 py-3 text-center text-xs text-white/50 md:px-8"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}

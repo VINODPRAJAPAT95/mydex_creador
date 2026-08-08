@@ -1,11 +1,11 @@
 export const company = {
   name: "Mydex International",
   tagline: "Premium Quality. Global Reach.",
-  phone: "+91 98765 43210",
+  phone: "+91 7013351268",
   email: "info@mydexinternational.com",
-  address: "Surat, Gujarat, India",
+  address: "Unjha, Gujarat, India",
   hours: "Mon – Sat: 9:00 AM – 6:00 PM IST",
-  whatsapp: "919876543210",
+  whatsapp: "917013351268",
 };
 
 export const aboutLinks = [
@@ -67,7 +67,7 @@ export const blogs = [
     category: "Quality",
     date: "February 28, 2026",
     image:
-      "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=1000&q=80",
+      "https://img.magnific.com/free-photo/healthy-assortment-dry-fruits-top-view_114579-8394.jpg?semt=ais_test_b&w=740&q=80",
     excerpt: "Key parameters every importer should verify before confirming a shipment.",
     content:
       "Moisture, size grading, aflatoxin compliance and packaging integrity remain the core quality pillars for dry fruit imports. Establishing clear specs upfront reduces claims and strengthens long-term partnerships.",
@@ -78,7 +78,7 @@ export const blogs = [
     category: "Logistics",
     date: "January 18, 2026",
     image:
-      "https://images.unsplash.com/photo-1578574577315-52ac877e8a2d?auto=format&fit=crop&w=1000&q=80",
+      "https://www.adlittle.com/sites/default/files/reports/ADL_Reimagining_Indias_supply_chain_web_wide.jpg",
     excerpt: "From farm coordination to container loading — what excellence looks like.",
     content:
       "A resilient agro supply chain blends farmer networks, QC labs, cold/dry storage and experienced freight partners. Mydex International designs each shipment around destination regulations and buyer timelines.",

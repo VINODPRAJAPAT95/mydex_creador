@@ -11,30 +11,25 @@ import {
   testimonials,
 } from "../data/siteData";
 
-/* Local hero background image — replace the path/filename with your actual asset */
+/* Local hero background image */
 import heroBg from "../assets/images/hero-dryfruits.png";
 import logisticsImage from "../assets/images/logistics.png";
-/* Local background image for the Global Trade section — replace the
-   path/filename with your actual asset */
+/* Local background image for the Global Trade section */
 import globalTradeBg from "../assets/images/global-trade.png";
 /* Local background image for the Get In Touch (CTA) section.
-   TEMP fallback: reusing globalTradeBg's asset so the build compiles.
-   Replace with your real photo at src/assets/images/get-in-touch.png
-   and change the path below once that file exists. */
-import ctaBg from "../assets/images/global-trade.png";
+   Put your real banner photo at this exact path/filename:
+   src/assets/images/get-in-touch.png */
+import ctaBg from "../assets/images/get-in-touch.png";
 /* Local portrait image for the Why Choose Us section.
-   TEMP fallback: reusing logisticsImage's asset so the build compiles.
-   Replace with your real portrait at
-   src/assets/images/why-choose-us-portrait.png and change the path
-   below once that file exists. */
-import whyChooseUsPortrait from "../assets/images/logistics.png";
-/* Local transparent PNG for the testimonials split section — replace
-   with your actual asset */
+   Put your real portrait photo at this exact path/filename:
+   src/assets/images/why-choose-us-portrait.png */
+import whyChooseUsPortrait from "../assets/images/why-choose-us-portrait.png";
+/* Local transparent PNG for the testimonials split section */
 import testimonialsArt from "../assets/images/testimonials-art.png";
 
 /* Local certification / authority logo PNGs for the auto-scrolling
-   certifications strip — replace each with your actual logo asset.
-   Transparent PNGs work best since the cards sit on a white background. */
+   certifications strip. Transparent PNGs work best since the cards
+   sit on a white background. */
 import fdaLogo from "../assets/images/certifications/fda.png";
 import fieoLogo from "../assets/images/certifications/fieo.png";
 import spicesBoardLogo from "../assets/images/certifications/spices-board.png";
@@ -280,6 +275,13 @@ const ourServices = [
   },
 ];
 
+/* Blogs — colors and tilt angles for the rotated card sitting behind each
+   photo, cycled per card index. Green and terracotta stay on-brand; the
+   last card uses blue per request — kept a deeper shade so it still
+   reads clearly against the beige section background. */
+const blogAccents = ["bg-mydex-green", "bg-[#A85C32]", "bg-[#2563EB]"];
+const blogTilts = ["-rotate-6", "rotate-6", "-rotate-4"];
+
 const servicesContainer = {
   hidden: {},
   show: {
@@ -429,13 +431,13 @@ const Home = () => {
   return (
   <>
     {/* Hero — image background, height trimmed down */}
-    <section className="relative isolate overflow-hidden">
-      {/* HD background image — local import instead of remote URL */}
-      <img
-        src={heroBg}
-        alt="Premium dry fruits and spices"
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
-      />
+  <section className="relative isolate overflow-hidden min-h-[650px]">
+  {/* HD background image — local import instead of remote URL */}
+  <img
+    src={heroBg}
+    alt="Premium dry fruits and spices"
+    className="absolute inset-0 -z-20 h-full w-full object-cover"
+  />
       {/* Gradient overlay so white text stays readable over the image */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-mydex-green/50 via-mydex-green/25 to-transparent" />
 
@@ -750,8 +752,8 @@ const Home = () => {
           <div className="mt-8 grid grid-cols-3 gap-4">
             {[
               { n: 30, s: "+", l: "Countries" },
-              { n: 500, s: "+", l: "Products" },
-              { n: 99, s: "%", l: "On-Time" },
+              { n: 72, s: "+", l: "Products" },
+              { n: 70, s: "+", l: "Experience" },
             ].map((x) => (
               <div key={x.l}>
                 <p className="font-serif text-3xl text-mydex-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
@@ -1047,29 +1049,46 @@ const Home = () => {
   </div>
 </section>
 
-    {/* Blogs — plain background unified to bg-mydex-beige + flower watermark, padding trimmed */}
+    {/* Blogs — plain rounded photo cards, heading + excerpt below.
+        Tilted color-card effect removed per request. */}
     <section className="relative overflow-hidden section-pad !py-10 md:!py-14 bg-mydex-beige">
       <FlowerWatermark />
       <div className="container-lux relative z-10">
         <SectionTitle eyebrow="Latest Blogs" title="Insights from Global Trade" />
-        <div className="grid gap-6 md:grid-cols-3">
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={standForContainer}
+          className="mt-4 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
+        >
           {blogs.map((b) => (
-            <Link key={b.slug} to={`/blog/${b.slug}`} className="card-lux rounded-none overflow-hidden p-0 hover:shadow-gold">
-              <img src={b.image} alt={b.title} className="h-44 w-full object-cover" loading="lazy" />
-              <div className="p-5">
-                <p className="text-xs uppercase tracking-wider text-mydex-gold">{b.category}</p>
-                <h3 className="mt-2 font-serif text-xl text-mydex-green">{b.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{b.excerpt}</p>
-              </div>
-            </Link>
+            <motion.div key={b.slug} variants={standForCard}>
+              <Link to={`/blog/${b.slug}`} className="group block">
+                <img
+                  src={b.image}
+                  alt={b.title}
+                  className="h-56 w-full  object-cover shadow-premium transition-transform duration-300 ease-out group-hover:-translate-y-1 sm:h-64"
+                  loading="lazy"
+                />
+
+                <h3 className="mt-6 font-serif text-xl font-bold leading-snug text-mydex-green transition-colors duration-300 group-hover:text-mydex-gold sm:text-2xl">
+                  {b.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">{b.excerpt}</p>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
 
     {/* CTA / Get In Touch — image-background banner with wavy top/bottom
         borders, matching the reference image: local bg image, dark green
-        gradient overlay, bold white heading, gold eyebrow, gold CTA button. */}
+        gradient overlay, bold white heading, gold eyebrow, gold CTA button.
+        Overlay lightened so the background photo actually reads through
+        instead of being buried under a near-opaque tint. */}
     <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -1077,14 +1096,16 @@ const Home = () => {
       transition={{ duration: 0.6 }}
       className="relative isolate overflow-hidden text-white"
     >
-      {/* HD background image — local import, replace with your own asset */}
+      {/* HD background image — put your real photo at
+          src/assets/images/get-in-touch.png */}
       <img
         src={ctaBg}
         alt="Get in touch with Mydex International"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
-      {/* Dark green gradient overlay so white text stays readable over the image */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-mydex-green/85 via-mydex-green/55 to-mydex-green/20" />
+      {/* Dark green gradient overlay, lightened from /85·/55·/20 so the
+          photo stays visible while text is still readable */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-mydex-green/70 via-mydex-green/40 to-mydex-green/10" />
 
       {/* Wavy top border — mirrors the hero's bottom wave, flipped, so the
           section reads as a continuous ribbon between the cream sections. */}
