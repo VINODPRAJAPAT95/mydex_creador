@@ -79,6 +79,84 @@ const scaleIn = {
    that already reference heroItem continue to work unchanged. */
 const heroItem = fadeUp;
 
+/* Word-by-word scale-in reveal — mirrors an anime.js
+   "scale: [14,1], opacity: [0,1], easeOutCirc" stagger, rebuilt with
+   Framer Motion so it fits the rest of this file. Splits `text` on
+   spaces and animates each word in, staggered by `stagger` seconds,
+   starting after `delay` seconds. */
+const AnimatedWords = ({
+  text,
+  className = "",
+  wordClassName = "",
+  delay = 0,
+  stagger = 0.12,
+}) => {
+  const words = text.split(" ");
+  return (
+    <span className={className}>
+      {words.map((word, i) => (
+        <motion.span
+          key={`${word}-${i}`}
+          className={`inline-block will-change-transform ${wordClassName}`}
+          initial={{ scale: 14, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: delay + i * stagger,
+            ease: [0.08, 0.82, 0.17, 1], // approximates anime.js easeOutCirc
+          }}
+        >
+          {word}&nbsp;
+        </motion.span>
+      ))}
+    </span>
+  );
+};
+
+/* Animates each letter of a string flying in from a rotated/offset
+   position and settling into place — mirrors an anime.js
+   "translateY:['1.1em',0], translateX:['0.55em',0], rotateZ:[180,0],
+   easeOutExpo" letter reveal (the .ml7 effect). Spaces are kept as
+   plain characters (not wrapped) so word-wrapping still behaves
+   normally. */
+const AnimatedLetters = ({
+  text,
+  className = "",
+  letterClassName = "",
+  delay = 0,
+  stagger = 0.05,
+  triggerOnView = false,
+}) => {
+  const letters = Array.from(text);
+  const target = { y: 0, x: 0, rotateZ: 0, opacity: 1 };
+  const start = { y: "1.1em", x: "0.55em", rotateZ: 180, opacity: 0 };
+  return (
+    <span className={className}>
+      {letters.map((char, i) =>
+        char === " " ? (
+          <span key={`space-${i}`}>&nbsp;</span>
+        ) : (
+          <motion.span
+            key={`${char}-${i}`}
+            className={`inline-block will-change-transform ${letterClassName}`}
+            initial={start}
+            {...(triggerOnView
+              ? { whileInView: target, viewport: { once: true, amount: 0.6 } }
+              : { animate: target })}
+            transition={{
+              duration: 0.75,
+              delay: delay + i * stagger,
+              ease: [0.16, 1, 0.3, 1], // approximates anime.js easeOutExpo
+            }}
+          >
+            {char}
+          </motion.span>
+        )
+      )}
+    </span>
+  );
+};
+
 /* "What We Stand For" — stagger container + per-card rise-and-settle motion,
    with a slight scale pop so the cards feel like they're "arriving" rather
    than simply fading in. */
@@ -452,12 +530,12 @@ const Home = () => {
             Premium Quality. Global Reach.
           </motion.p>
 
-          <motion.h1
-            variants={fadeUp}
-            className="font-serif text-4xl font-semibold leading-tight text-white md:text-6xl"
-          >
-            Global Importer &amp; Exporter of Dry Fruits &amp; Spices
-          </motion.h1>
+          <h1 className="font-serif text-4xl font-semibold leading-tight text-white md:text-6xl">
+            <AnimatedWords
+              text="Global Importer & Exporter of Dry Fruits & Spices"
+              delay={0.6}
+            />
+          </h1>
 
           <motion.p variants={fadeUp} className="mt-5 max-w-xl text-white/85">
             Mydex International delivers export-grade agro commodities with Fortune-500 level
@@ -465,22 +543,75 @@ const Home = () => {
           </motion.p>
 
           <motion.div variants={scaleIn} className="mt-8 flex flex-wrap gap-4">
-            <Button to="/products/dry-fruits" variant="gold">
-              Explore Products
-            </Button>
-            <Button to="/services" variant="outline">
-              <span className="text-white">Our Services</span>
-            </Button>
+            <span className="hero-cta-btn">
+              <Button to="/products/dry-fruits" variant="gold">
+                <span className="hero-cta-label">Explore Products</span>
+              </Button>
+            </span>
+            <span className="hero-cta-btn">
+              <Button to="/services" variant="outline">
+                <span className="hero-cta-label text-white">Our Services</span>
+              </Button>
+            </span>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Local styles for the two hero CTA buttons: a border that scales
+          in from the center plus letter-spacing that opens up on hover —
+          adapted from a CodePen "btn-one" hover effect. Applied via a
+          wrapping span (.hero-cta-btn) so it layers on top of whatever
+          markup the Button component itself renders, without touching
+          its existing gold/outline styling. */}
+      <style>{`
+        .hero-cta-btn {
+          position: relative;
+          display: inline-block;
+        }
+        .hero-cta-btn::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          opacity: 0;
+          pointer-events: none;
+          border-top: 1px solid rgba(255, 255, 255, 0.6);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+          transform: scale(0.1, 1);
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .hero-cta-btn::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
+          background-color: rgba(255, 255, 255, 0.12);
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .hero-cta-btn:hover::before {
+          opacity: 1;
+          transform: scale(1, 1);
+        }
+        .hero-cta-btn:hover::after {
+          opacity: 0;
+          transform: scale(0.1, 1);
+        }
+        .hero-cta-label {
+          display: inline-block;
+          transition: letter-spacing 0.3s ease;
+        }
+        .hero-cta-btn:hover .hero-cta-label {
+          letter-spacing: 2px;
+        }
+      `}</style>
 
       {/* Gold circular badge, floating accent on the background image.
           Delay pushed out so it lands after the text sequence finishes. */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
+        transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
         className="absolute bottom-8 right-6 hidden h-28 w-28 flex-col items-center justify-center rounded-full border border-mydex-gold bg-mydex-green/90 text-center text-[10px] uppercase tracking-widest text-mydex-gold shadow-gold backdrop-blur-sm md:right-10 md:flex lg:h-32 lg:w-32"
       >
         Exporting
@@ -554,16 +685,20 @@ const Home = () => {
           <motion.p variants={heroItem} className="eyebrow mb-3">
             About Mydex International
           </motion.p>
-          <motion.h2 variants={heroItem} className="font-serif text-4xl text-mydex-green">
-            Quality You Can Trust, Service You Can Rely On
-          </motion.h2>
+          <h2 className="font-serif text-4xl text-mydex-green">
+            <AnimatedLetters
+              text="Quality You Can Trust, Service You Can Rely On"
+              delay={0.1}
+              triggerOnView
+            />
+          </h2>
           <motion.p variants={heroItem} className="mt-4 text-gray-600">
             Founded in 1956 in Unjha, Gujarat, Mydex International is a 70-year-old, family-run company built on trust, quality, and three generations of expertise in the dry fruits, spices, and masala trade.
           </motion.p>
           <motion.div variants={heroItem} className="mt-6 grid grid-cols-3 gap-4">
             {[
               { n: 70, s: "+", l: "Years" },
-              { n: 1000, s: "+", l: "Clients" },
+              { n: 470, s: "+", l: "Clients" },
               { n: 30, s: "+", l: "Countries" },
             ].map((stat) => (
               <div key={stat.l} className="border border-mydex-gold/30 bg-white/60 p-4 text-center">
