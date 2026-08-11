@@ -11,7 +11,7 @@ import figImg       from "../../assets/images/dry-fruits/fig.png";
 import datesImg     from "../../assets/images/dry-fruits/dates.png";
 import apricotImg   from "../../assets/images/dry-fruits/apricot.png";
 import hazelnutImg  from "../../assets/images/dry-fruits/hazelnut.png";
-import macadamiaImg from "../../assets/images/dry-fruits/macadamia.png";
+
 
 const slug = "dry-fruits";
 
@@ -79,15 +79,15 @@ export const dryFruitsProducts = createProducts(dryFruitsCategory.slug, category
     varieties: ["W180", "W210", "W240", "W320", "W450", "Cashew Splits"],
     applications: ["Snack Industry", "Confectionery", "Retail Packing", "Food Processing"],
   },
-  {
-    name: "Makhana(Regular/Flavoured)",
-    image: pistachioImg,
-    tagline: "Naturally Green. Naturally Premium.",
-    description: "Premium pistachios graded by size and shell integrity. Mydex pistachios are processed hygienically, moisture-tested and packed to retain their natural crunch and flavour. Available as in-shell, open-shell or kernel, suitable for retail, bakery and confectionery buyers worldwide.",
-    healthBenefits: ["Rich in antioxidants", "Supports weight management", "Good source of protein and fiber", "Promotes gut health"],
-    varieties: ["In-Shell Pistachio", "Open Shell Pistachio", "Pistachio Kernel", "Roasted Pistachio"],
-    applications: ["Confectionery", "Bakery", "Retail Snacks", "Ice Cream Industry"],
-  },
+ {
+  name: "Makhana\n(Regular/Flavoured)",
+  image: pistachioImg,
+  tagline: "Naturally Green. Naturally Premium.",
+  description: "Premium pistachios graded by size and shell integrity. Mydex pistachios are processed hygienically, moisture-tested and packed to retain their natural crunch and flavour. Available as in-shell, open-shell or kernel, suitable for retail, bakery and confectionery buyers worldwide.",
+  healthBenefits: ["Rich in antioxidants", "Supports weight management", "Good source of protein and fiber", "Promotes gut health"],
+  varieties: ["In-Shell Pistachio", "Open Shell Pistachio", "Pistachio Kernel", "Roasted Pistachio"],
+  applications: ["Confectionery", "Bakery", "Retail Snacks", "Ice Cream Industry"],
+},
   {
     name: "Walnut",
     image: walnutImg,
@@ -107,7 +107,7 @@ export const dryFruitsProducts = createProducts(dryFruitsCategory.slug, category
     applications: ["Bakery & Confectionery", "Breakfast Cereals", "Retail Packing", "Health Foods"],
   },
   {
-    name: "Dry Fig",
+    name: "Dry anjeer",
     image: figImg,
     tagline: "Soft. Nutrient-Rich. Naturally Energising.",
     description: "Dry Fig, popularly known as Anjeer, is one of the oldest cultivated fruits in the world, valued for its natural sweetness, digestive benefits, and rich mineral content. Traditionally used in Ayurveda and modern nutrition alike, figs are a powerhouse of fiber and energy. Mydex offers premium-grade dry figs, carefully dried and processed to retain their soft texture, rich flavor, and nutritional integrity.",
@@ -116,7 +116,7 @@ export const dryFruitsProducts = createProducts(dryFruitsCategory.slug, category
     applications: ["Food & Beverage", "Sweets & Desserts", "Breakfast Cereals", "Ayurvedic Formulations"],
   },
   {
-    name: "Dry Dates",
+    name: "Dates",
     image: datesImg,
     tagline: "Sweet. Natural. Energy Packed.",
     description: "Premium Medjool and Deglet Noor dates, sourced and repacked at our Unjha facility. Available pitted, unpitted or in blocks, with custom packaging options for retail, foodservice and industrial buyers. All batches are moisture-tested and quality-certified before shipment.",
@@ -134,7 +134,7 @@ export const dryFruitsProducts = createProducts(dryFruitsCategory.slug, category
     applications: ["Bakery & Confectionery", "Health Foods", "Retail Packing", "Nutraceuticals"],
   },
   {
-    name: "Chuhara",
+    name: "Dry Dates",
     image: hazelnutImg,
     tagline: "Rich. Buttery. Premium Export Grade.",
     description: "Export-grade hazelnuts sourced from quality-certified origins, graded by size and shell-out ratio. Available as in-shell, blanched or roasted, with vacuum or MAP packaging to protect flavour integrity across extended shelf life. Suitable for chocolate, bakery and snack manufacturers.",

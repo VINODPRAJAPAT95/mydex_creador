@@ -90,19 +90,52 @@ export const CategoryPage = () => {
       <section className="relative overflow-hidden section-pad pb-0 bg-mydex-beige">
         <FlowerWatermark />
         <div className="container-lux relative z-10">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr] items-center rounded-2xl border border-mydex-gold/30 bg-white p-6 shadow-premium">
-            <img
-              src={category.image}
-              alt={category.name}
-              className="w-full h-64 rounded-xl object-cover shadow-sm"
-            />
-            <div className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-widest text-mydex-gold">
-                Category Overview
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.3fr] items-start">
+            {/* Image with offset frame */}
+            <div className="relative">
+              <div className="absolute -bottom-4 -left-4 h-full w-full rounded-2xl bg-mydex-green" />
+              <img
+                src={category.image}
+                alt={category.name}
+                className="relative z-10 h-[420px] w-full rounded-2xl object-cover shadow-premium"
+              />
+            </div>
+
+            {/* Text content */}
+            <div>
+              <p className="text-sm font-semibold text-mydex-green">{category.name}</p>
+
+              <h2 className="mt-3 font-serif text-4xl sm:text-5xl font-bold leading-tight text-mydex-charcoal">
+                {category.headline || `The Natural Essence of India's ${category.name}`}
+              </h2>
+
+              <div className="mt-6 border-l-4 border-mydex-green pl-4">
+                <p className="text-lg text-mydex-green">
+                  {category.tagline || category.description}
+                </p>
+              </div>
+
+              <p className="mt-6 text-gray-600 leading-relaxed">
+                {category.introText || category.description}
               </p>
-              <h2 className="font-serif text-3xl text-mydex-green">{category.name}</h2>
-              <p className="text-gray-600 leading-relaxed">{category.description}</p>
-              <div className="flex flex-wrap gap-3 pt-2">
+
+            <p className="mt-6 text-gray-600 leading-relaxed">
+  At <span className="font-bold text-mydex-charcoal">Mydex International</span>,
+  we proudly export a wide range of{" "}
+  <span className="font-bold text-mydex-charcoal">premium-quality {category.name}</span>,
+  cultivated in harmony with nature and processed to meet{" "}
+  <span className="font-bold text-mydex-charcoal">
+    international purity, flavor, and nutritional standards.
+  </span>
+</p>
+
+              <p className="mt-6 text-gray-600 leading-relaxed">
+                Every Mydex product is a symbol of{" "}
+                <span className="font-bold text-mydex-charcoal">purity, performance, and partnership</span>{" "}
+                nourishing the world while preserving India's agricultural soul.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Button to="/get-quote" variant="gold">Request Category Quote</Button>
                 <Button to="/contact" variant="outline">Talk to Trade Desk</Button>
               </div>
@@ -118,7 +151,7 @@ export const CategoryPage = () => {
           <p className="text-xs font-semibold uppercase tracking-widest text-mydex-gold mb-6">
             {products.length} Products
           </p>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {products.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -129,7 +162,6 @@ export const CategoryPage = () => {
   );
 };
 
-// ─── Product Detail ───────────────────────────────────────────────────────────
 export const ProductDetail = () => {
   const { categorySlug, productSlug } = useParams();
   const product = (productsByCategory[categorySlug] || []).find((p) => p.slug === productSlug);
@@ -159,29 +191,35 @@ export const ProductDetail = () => {
         <FlowerWatermark />
 
         {/* ── Main Grid: Image + Info ── */}
-        <div className="container-lux relative z-10 grid gap-10 lg:grid-cols-2">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="h-[420px] w-full object-contain
-                       animate-fade-up
-                       transition-transform duration-500 ease-out
-                       hover:-translate-y-2 hover:scale-[1.02]"
-          />
+        <div className="container-lux relative z-10 grid gap-10 lg:grid-cols-2 items-start">
+          {/* Image column */}
+          <div className="lg:sticky lg:top-24">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full max-h-[420px] object-contain"
+            />
 
+            {/* Description below image */}
+            <div className="mt-6 rounded-xl border border-mydex-gold/25 bg-white p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-mydex-gold">
+                About {product.name}
+              </p>
+              {product.tagline && (
+                <p className="mt-2 font-serif text-lg italic text-mydex-green">
+                  {product.tagline}
+                </p>
+              )}
+              <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+          </div>
+
+          {/* Info column */}
           <div>
             <p className="eyebrow">Product Details</p>
             <h2 className="mt-2 font-serif text-4xl text-mydex-green">{product.name}</h2>
-
-            {/* Tagline */}
-            {product.tagline && (
-              <p className="mt-2 font-serif text-lg italic text-mydex-gold">
-                {product.tagline}
-              </p>
-            )}
-
-            {/* Description */}
-            <p className="mt-4 text-gray-600 leading-relaxed">{product.description}</p>
 
             {/* Specs */}
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -228,11 +266,20 @@ export const ProductDetail = () => {
             {/* Applications */}
             <div className="mt-6">
               <h3 className="font-semibold text-mydex-green">Applications</h3>
-              <p className="mt-2 text-sm text-gray-600">{product.applications.join(" · ")}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {product.applications.map((a) => (
+                  <span
+                    key={a}
+                    className="rounded-lg border border-mydex-gold/30 bg-mydex-cream px-3 py-1.5 text-sm text-mydex-green"
+                  >
+                    {a}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Quality */}
-            <div className="mt-4">
+            <div className="mt-6">
               <h3 className="font-semibold text-mydex-green">Quality</h3>
               <p className="mt-2 text-sm text-gray-600">{product.quality}</p>
             </div>
@@ -250,27 +297,11 @@ export const ProductDetail = () => {
           </div>
         </div>
 
-        {/* Gallery */}
-        <div className="container-lux relative z-10 mt-16">
-          <h3 className="mb-6 font-serif text-3xl text-mydex-green">Gallery</h3>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {product.gallery.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt=""
-                className="h-48 w-full rounded-xl object-cover"
-                loading="lazy"
-              />
-            ))}
-          </div>
-        </div>
-
         {/* Related Products */}
         {related.length > 0 && (
           <div className="container-lux relative z-10 mt-16">
             <h3 className="mb-6 font-serif text-3xl text-mydex-green">Related Products</h3>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {related.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}

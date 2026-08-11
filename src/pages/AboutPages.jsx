@@ -7,7 +7,7 @@ import { journey } from "../data/siteData";
 
 // ─── LOCAL IMAGE IMPORTS ───────────────────────────────────────────────────────
 // Replace these paths with your actual asset locations
-import whoWeAreImg from "../assets/images/who-we-are.jpg";       // facility / product shot
+import whoWeAreImg from "../assets/images/who-we-are.png";       // facility / product shot
 import missionBgImg from "../assets/images/mission-bg.jpg";       // optional, not used in layout below
 // ──────────────────────────────────────────────────────────────────────────────
 
@@ -71,6 +71,108 @@ const scaleIn = {
   show: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
+/* ─── 3D PERSPECTIVE IMAGE PANEL ───────────────────────────────────────────
+   Recreated from the pasted SCSS "example" effect: one image split into
+   three angled blocks (each with a bright -main face and a darker -left
+   edge face) so the flat photo reads as a folded, three-dimensional strip.
+   background-image can't live in the flattened <style> block below since
+   it depends on the imported whoWeAreImg, so each .side gets it via an
+   inline style — position/size/transform stay in CSS since they're static. */
+const Who3DPanel = () => {
+  const bg = { backgroundImage: `url(${whoWeAreImg})` };
+
+  return (
+    <div className="who3d">
+      <div className="who3d-block">
+        <div
+          className="who3d-side who3d-main"
+          style={{ ...bg, backgroundPosition: "4% 50%", backgroundSize: "auto 130%" }}
+        />
+        <div
+          className="who3d-side who3d-left"
+          style={{ ...bg, backgroundPosition: "0 50%", backgroundSize: "auto 130%" }}
+        />
+      </div>
+      <div className="who3d-block">
+        <div
+          className="who3d-side who3d-main"
+          style={{ ...bg, backgroundPosition: "50% 0" }}
+        />
+        <div
+          className="who3d-side who3d-left"
+          style={{ ...bg, backgroundPosition: "28.5% 0" }}
+        />
+      </div>
+      <div className="who3d-block">
+        <div
+          className="who3d-side who3d-main"
+          style={{ ...bg, backgroundPosition: "96% 50%", backgroundSize: "auto 130%" }}
+        />
+        <div
+          className="who3d-side who3d-left"
+          style={{ ...bg, backgroundPosition: "78% 50%", backgroundSize: "auto 130%" }}
+        />
+      </div>
+
+      {/* Scoped styles — flattened from the pasted nested SCSS since plain
+          CSS-in-JSX can't use SCSS's `&` nesting. Class names are prefixed
+          who3d- so nothing here collides with other page styles. */}
+      <style>{`
+        .who3d {
+          position: relative;
+          width: 100%;
+          padding-top: 72%;
+          margin: 0 auto;
+        }
+        .who3d-block {
+          position: absolute;
+          height: 100%;
+          width: 30%;
+          perspective: 1000px;
+        }
+        .who3d-block:nth-of-type(1) {
+          height: 80%;
+          top: 10%;
+          left: 17%;
+          width: 15%;
+        }
+        .who3d-block:nth-of-type(2) {
+          top: 0;
+          left: 35%;
+        }
+        .who3d-block:nth-of-type(3) {
+          height: 80%;
+          top: 10%;
+          left: 64%;
+          width: 15%;
+        }
+        .who3d-side {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-size: auto 100%;
+          background-repeat: no-repeat;
+          box-shadow: -1vw 0.5vw 1vw rgba(0, 0, 0, 0.3);
+        }
+        .who3d-main {
+          height: 100%;
+          width: 100%;
+          transform: rotateY(30deg);
+          transform-origin: 0 50%;
+        }
+        .who3d-left {
+          height: 100%;
+          width: 20%;
+          transform-origin: 0 50%;
+          transform: rotateY(-60deg) translateX(-100%);
+          filter: brightness(40%);
+        }
+      `}</style>
+    </div>
+  );
+};
+// ────────────────────────────────────────────────────────────────────────────
+
 // ─── OVERVIEW ─────────────────────────────────────────────────────────────────
 
 export const Overview = () => (
@@ -99,17 +201,9 @@ export const Overview = () => (
           }}
           className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] items-start"
         >
-          {/* LEFT — image with badge */}
+          {/* LEFT — 3D perspective panel image with badge */}
           <motion.div variants={scaleIn} className="relative mx-auto w-full max-w-md">
-            {/* Gold offset frame */}
-            <div className="pointer-events-none absolute -bottom-5 -left-5 h-full w-full border-2 border-mydex-gold" />
-
-            <img
-              src={whoWeAreImg}
-              alt="Mydex International — Unjha facility"
-              className="relative w-full rounded-2xl object-cover shadow-premium"
-              style={{ minHeight: 420 }}
-            />
+            <Who3DPanel />
 
             {/* Floating badge */}
             <motion.div
