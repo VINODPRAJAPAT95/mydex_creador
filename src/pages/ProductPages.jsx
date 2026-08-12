@@ -38,6 +38,36 @@ const FlowerWatermark = ({ tone, motif = "flower", className = "" }) => {
   );
 };
 
+// ─── Flip Card (used for Varieties & Specifications) ──────────────────────────
+const FlipCard = ({ name, details }) => (
+  <div className="group h-32 [perspective:1400px]">
+    <div
+      className="relative h-full w-full rounded-xl shadow-sm transition-transform
+                 duration-700 ease-out [transform-style:preserve-3d]
+                 group-hover:[transform:rotateY(180deg)]"
+    >
+      {/* Front face */}
+      <div
+        className="absolute inset-0 flex items-center justify-center rounded-xl
+                   bg-mydex-green px-4 text-center text-sm font-medium
+                   text-mydex-gold [backface-visibility:hidden]"
+      >
+        {name}
+      </div>
+
+      {/* Back face */}
+      <div
+        className="absolute inset-0 flex items-center justify-center rounded-xl
+                   border border-mydex-gold/30 bg-white px-4 text-center
+                   text-xs leading-snug text-mydex-green
+                   [backface-visibility:hidden] [transform:rotateY(180deg)]"
+      >
+        {details}
+      </div>
+    </div>
+  </div>
+);
+
 // ─── Products Index ───────────────────────────────────────────────────────────
 export const ProductsIndex = () => (
   <>
@@ -246,23 +276,6 @@ export const ProductDetail = () => {
               </div>
             )}
 
-            {/* Varieties */}
-            {product.varieties?.length > 0 && (
-              <div className="mt-6">
-                <h3 className="font-semibold text-mydex-green">Varieties & Specifications</h3>
-                <div className="mt-3 flex flex-wrap gap-3">
-                  {product.varieties.map((v) => (
-                    <span
-                      key={v}
-                      className="rounded-lg bg-mydex-green px-4 py-2 text-sm font-medium text-mydex-gold"
-                    >
-                      {v}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Applications */}
             <div className="mt-6">
               <h3 className="font-semibold text-mydex-green">Applications</h3>
@@ -294,6 +307,26 @@ export const ProductDetail = () => {
                 WhatsApp Inquiry
               </Button>
             </div>
+
+            {/* Varieties & Specifications — flip cards (below CTA buttons) */}
+            {product.varieties?.length > 0 && (
+              <div className="mt-10">
+                <h3 className="font-semibold text-mydex-green">Varieties & Specifications</h3>
+                <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {product.varieties.map((v) => {
+                    // Supports both plain strings ("Rama Tulsi") and rich objects
+                    // { name: "Rama Tulsi", details: "Color: Bright green..." }
+                    const name = typeof v === "string" ? v : v.name;
+                    const details =
+                      typeof v === "string"
+                        ? "Export-grade quality, carefully sorted and graded for international standards."
+                        : v.details;
+
+                    return <FlipCard key={name} name={name} details={details} />;
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

@@ -131,14 +131,31 @@ export const testimonials = [
 ];
 
 export const galleryItems = [
-  { title: "Factory Floor", type: "Factory", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80" },
-  { title: "Warehouse", type: "Warehouse", image: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80" },
-  { title: "Premium Spices", type: "Products", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=80" },
-  { title: "Dry Fruits Pack", type: "Packaging", image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=900&q=80" },
-  { title: "Container Loading", type: "Container Loading", image: "https://images.unsplash.com/photo-1578574577315-52ac877e8a2d?auto=format&fit=crop&w=900&q=80" },
-  { title: "Export Port", type: "Export", image: "https://images.unsplash.com/photo-1494412574643-ff11b0a95f0d?auto=format&fit=crop&w=900&q=80" },
-  { title: "Lab Testing", type: "Quality", image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=80" },
-  { title: "Logistics Hub", type: "Export", image: "https://images.unsplash.com/photo-1566576721346-d34bf55f7f16?auto=format&fit=crop&w=900&q=80" },
+  {
+    title: "Assorted Whole Spices",
+    type: "Spices",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC_70Rx_pMdp3mSabt1X21kASnFqDx3gEEtGjs0241V-BYHPnukS90Eb-s&s=10",
+  },
+  {
+    title: "Premium Spices",
+    type: "Spices",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Premium Almonds",
+    type: "Dry Fruits",
+    image: "https://images.unsplash.com/photo-1772986799909-81bc27fd99ce?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Cashew Nuts",
+    type: "Dry Fruits",
+    image: "https://nutribinge.in/cdn/shop/articles/seeds_dry_fruits_nuts.webp?v=1713264895",
+  },
+  {
+    title: "Dry Fruits Pack",
+    type: "Dry Fruits",
+    image: "https://nutribinge.in/cdn/shop/articles/seeds_dry_fruits_nuts.webp?v=1713264895",
+  },
 ];
 
 export const journey = [

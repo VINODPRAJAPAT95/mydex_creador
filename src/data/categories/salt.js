@@ -16,33 +16,72 @@ export const saltCategory = {
 };
 
 export const saltProducts = createProducts(saltCategory.slug, categoryImage, [
-  {
-    name: "Himalayan Pink Salt",
-    image: himalayanImg,
-    tagline: "Pure. Mineral-Rich. Naturally Pink.",
-    description: "Mydex Himalayan Pink Salt is mined from ancient salt deposits and minimally processed to retain its natural mineral content and signature pink hue. Available in coarse, fine and powder grades, it meets strict purity standards for culinary, cosmetic and wellness buyers worldwide.",
-    healthBenefits: ["Rich in trace minerals", "Contains lower sodium content than table salt", "Free from additives and anti-caking agents", "Supports electrolyte balance"],
-    varieties: ["Coarse Himalayan Salt", "Fine Himalayan Salt", "Himalayan Salt Powder", "Himalayan Salt Chunks"],
-    applications: ["Culinary Use", "Spa & Cosmetic Products", "Bath Salts", "Retail Packing"],
-  },
-  {
-    name: "Iodized Salt",
-    image: iodizedImg,
-    tagline: "Refined. Fortified. Everyday Essential.",
-    description: "Mydex Iodized Salt is refined and fortified with potassium iodate to support daily nutritional needs. Processed under strict hygiene standards and free-flowing for consistent use, it is widely trusted by households and food manufacturers alike.",
-    healthBenefits: ["Supports thyroid function", "Helps prevent iodine deficiency disorders", "Free-flowing and easy to use", "Consistent fine texture"],
-    varieties: ["Fine Iodized Salt", "Crystal Iodized Salt", "Vacuum Evaporated Salt"],
-    applications: ["Household Use", "Food Processing", "Bakery", "Retail Packing"],
-  },
-  {
-    name: "Black Salt",
-    image: blackImg,
-    tagline: "Pungent. Traditional. Naturally Sourced.",
-    description: "Mydex Black Salt (Kala Namak) is sourced and processed to preserve its distinctive sulphurous aroma and dark colour, prized in traditional and Ayurvedic cooking. Available in crystal and powder forms, it is suited for spice blenders, food brands and culinary exporters.",
-    healthBenefits: ["Traditionally supports digestion", "Contains natural trace minerals", "Low in additives", "Used in Ayurvedic formulations"],
-    varieties: ["Black Salt Crystal", "Black Salt Powder"],
-    applications: ["Culinary Blends", "Spice Industry", "Ayurvedic Formulations", "Retail Packing"],
-  },
+{
+  name: "Himalayan Pink Salt",
+  image: himalayanImg,
+  tagline: "From the Heart of the Himalayas. Naturally Beautiful. Eternally Pure.",
+  description:
+    "Hidden deep within the majestic Himalayan mountains lies a treasure over 250 million years old — the Himalayan Pink Salt, nature's purest and most mineral-rich salt on Earth. With its delicate rose hue and more than 84 trace minerals, this salt is not just a seasoning; it's a symbol of wellness, balance, and natural beauty. At Nesbee Spices & Foods Pvt. Ltd., we source the finest Himalayan Pink Salt from the ancient Khewra mines — the same source that supplies premium salt to gourmet brands and wellness companies worldwide. Processed with minimal handling and zero chemical treatment, our pink salt retains its natural color, flavor, and mineral integrity — a perfect fusion of purity and sophistication. Whether for gourmet kitchens, organic stores, or wellness brands, Nesbee Himalayan Pink Salt stands as the hallmark of Indian authenticity and global luxury.",
+  varieties: [
+    { name: "Coarse Himalayan Salt", details: "Size: 2-5mm grains · Slow-dissolving · Usage: Grinders, cooking, seasoning" },
+    { name: "Fine Himalayan Salt", details: "Size: <1mm · Table-ready texture · Usage: Daily cooking, table salt" },
+    { name: "Himalayan Salt Powder", details: "Ultra-fine ground · Fast-dissolving · Usage: Spice blends, food processing" },
+    { name: "Himalayan Salt Chunks", details: "Size: 20-50mm blocks · Natural pink hue · Usage: Cooking slabs, decor, spa products" },
+  ],
+  applications: [
+    "Used in cooking, gourmet seasoning, and fine dining",
+    "Added to marinades, sauces, and roasted dishes",
+    "A favorite for premium organic and luxury food brands",
+    "Used in bath salts, body scrubs, and detox blends",
+    "Popular in Himalayan salt lamps and inhalers for natural purification",
+    "Widely used in Ayurveda and aromatherapy",
+    "Used in cosmetic formulations, salt rooms, and therapeutic wellness centers",
+  ],
+},
+{
+  name: "Iodized Salt",
+  image: iodizedImg,
+  tagline: "Essential. Pure. Perfectly Balanced. The Soul of Every Kitchen.",
+  description:
+    "From the smallest household meal to the largest food factory, salt is the foundation of flavor and life. At Nesbee Spices & Foods Pvt. Ltd., we bring you Regular Refined Salt that defines purity, consistency, and trust, making it the preferred choice for kitchens and industries around the world. Harvested from the coastal salt pans of Gujarat and Tamil Nadu, our refined salt is processed using advanced crystallization technology to achieve perfect whiteness, fine granulation, and uniform texture. It's free from impurities and carefully graded for superior solubility and taste stability, ensuring that every pinch delivers perfection. Nesbee Regular Salt is more than an ingredient — it's the invisible hero behind every recipe, product, and brand that values purity and performance.",
+  varieties: [
+    { name: "Fine Iodized Salt", details: "Grain size: <1mm · Free-flowing · Usage: Household cooking, table use" },
+    { name: "Crystal Iodized Salt", details: "Grain size: 2-4mm · Slower dissolve · Usage: Pickling, bulk food processing" },
+    { name: "Vacuum Evaporated Salt", details: "Purity: 99%+ · Uniform fine crystal · Usage: Food manufacturing, bakery" },
+  ],
+  applications: [
+    "Used in household cooking and seasoning",
+    "Key ingredient in snacks, sauces, bakery, and pickles",
+    "Perfect for food processing and instant meal manufacturing",
+    "Used in pharmaceuticals, chemical, textile, and detergent industries",
+    "Water softening and purification plants",
+    "De-icing roads and industrial cleaning",
+    "Available for private labeling under global brands",
+    "Distributed in retail packs and bulk packaging for importers",
+  ],
+},
+{
+  name: "Rock Salt (Sendha Namak)",
+  image: blackImg, // ⚠️ needs a real import — this doesn't exist in your file yet
+  tagline: "Pure. Powerful. Primal. India's Natural Salt of Balance and Healing.",
+  description:
+    "Long before modern wellness trends, India had already discovered a natural mineral secret — Rock Salt (Sendha Namak). Mined from the ancient salt deposits at the foothills of the Himalayas, this unrefined mineral salt has been cherished for centuries for its purity, therapeutic properties, and gentle flavor. At Nesbee Spices & Foods Pvt. Ltd., we bring you the purest Indian Rock Salt, sourced from mineral-rich deposits in Himachal Pradesh and northern India, where time and nature have preserved it in its most authentic form. Naturally pinkish-white and packed with trace minerals like calcium, magnesium, iron, and potassium, Nesbee Rock Salt represents India's ancient science of health, reimagined for modern living. Used widely in Ayurveda, fasting rituals, gourmet cuisine, and spa therapy, our Rock Salt embodies both purity and purpose — a timeless gift from India's earth to the world.",
+  varieties: [
+    { name: "Rock Salt Crystal", details: "Pinkish-white, coarse crystal · Usage: Fasting foods, traditional cooking" },
+    { name: "Rock Salt Powder", details: "Finely ground · Usage: Everyday cooking, spice blends" },
+    { name: "Rock Salt Chunks", details: "Large mineral blocks · Usage: Cooking slabs, spa & decor products" },
+  ],
+  applications: [
+    "Used as a healthier alternative to refined salt",
+    "Common in fasting (vrat) foods, pickles, and Indian recipes",
+    "Adds subtle flavor and mineral notes to dishes",
+    "Used in Ayurvedic and naturopathic therapies",
+    "Ingredient in bath salts, scrubs, and detox treatments",
+    "Used for salt lamps and inhalation therapy for natural air purification",
+    "Utilized in pharmaceutical and cosmetic manufacturing",
+    "Used in salt blocks and wellness decor products",
+  ],
+},
 ]);
 
 export default { category: saltCategory, products: saltProducts };

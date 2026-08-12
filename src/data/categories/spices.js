@@ -34,267 +34,598 @@ export const spicesCategory = {
 
 export const spicesProducts = createProducts(spicesCategory.slug, categoryImage, [
   {
-    name: "Dry Red Chillies",
+    name: "Dry Red Chillies (Sookhi Lal Mirch)",
     image: redChilliImg,
     tagline: "Fiery. Vibrant. Naturally Sun-Dried.",
     description:
-      "Dry Red Chillies are a cornerstone of Indian cuisine, prized for their deep color, pungency, and versatility. Sourced from prime growing belts and sun-dried to lock in flavor, Mydex chillies are sorted by length, color value (ASTA) and heat level to meet the exact specifications of global buyers.",
+      "The Fiery Heart of Indian Cuisine\n\nFrom the vibrant fields of Andhra Pradesh to the spice markets of Karnataka, Indian Dry Red Chillies have set the world ablaze with their color, flavor, and heat.\n\nAt Nesbee Spices & Foods Pvt. Ltd., we take immense pride in exporting premium-quality red chillies — carefully sourced, sun-dried, and graded to meet global standards.\n\nMore than just a spice, red chillies symbolize India's passion for flavor — bold, bright, and full of life.",
     healthBenefits: [
       "Rich in capsaicin and antioxidants",
       "Supports metabolism",
       "Good source of vitamin C",
       "Boosts digestion",
     ],
-    varieties: ["Teja", "334", "S4", "Byadgi", "Kashmiri", "Whole & Stemless"],
-    applications: ["Spice Blends & Masalas", "Food Processing", "Sauces & Pickles", "Retail Packing"],
+    varieties: [
+      {
+        name: "Byadgi Chilli",
+        details: "Karnataka · Low heat, deep red hue · Wrinkled skin · Usage: Color-rich curries, paste",
+      },
+      {
+        name: "Guntur Chilli",
+        details: "Andhra Pradesh · High pungency, bold heat · Usage: Spice powders, masalas, oleoresin",
+      },
+      {
+        name: "Kashmiri Chilli",
+        details: "Jammu & Kashmir · Mild heat, vivid red · Prized for color · Usage: Premium culinary blends",
+      },
+      {
+        name: "Sannam (S4) Chilli",
+        details: "Andhra Pradesh, Tamil Nadu · Mild heat, bright red · High ASTA color value · Usage: Color extraction, export",
+      },
+      {
+        name: "Teja Chilli",
+        details: "Andhra Pradesh · Heat: 40,000–50,000 SHU · High pungency · Usage: Chilli powder, oleoresin",
+      },
+    ],
+    applications: [
+      "Whole Chillies — Used for tempering (tadka) in curries and stews",
+      "Ground Form — Blended into masalas, sauces, chutneys, and spice powders",
+      "Infused Oils — Adds intense heat and flavor to cooking oils",
+      "Processed Foods — Used in snacks, pickles, and spice-based seasonings",
+    ],
   },
+
   {
-    name: "Turmeric",
+    name: "Turmeric (Haldi)",
     image: turmericImg,
     tagline: "Golden Root. Global Superfood.",
     description:
-      "Turmeric is India's golden spice, celebrated worldwide for its color, flavor and wellness properties. Mydex turmeric is cultivated in mineral-rich soil, cured and polished to achieve high curcumin content and a vivid golden hue, available as whole fingers or finely milled powder.",
+      "Pure. Potent. Proudly Indian.\n\nKnown as the \"Golden Spice of India,\" turmeric is more than just a kitchen ingredient — it's a symbol of purity, healing, and tradition. From ancient Ayurveda to modern global cuisines, Indian turmeric has earned its place as one of the most valuable spices in the world.\n\nAt Nesbee Spices & Foods Pvt. Ltd., we export premium-quality turmeric sourced from India's most fertile regions, ensuring every batch is rich in color, curcumin, and aroma.\n\nOur turmeric embodies everything India stands for — warmth, wellness, and timeless flavor.",
     healthBenefits: [
       "High curcumin content",
       "Powerful anti-inflammatory properties",
       "Rich in antioxidants",
       "Supports immunity",
     ],
-    varieties: ["Turmeric Finger", "Turmeric Powder", "Salem Turmeric", "Erode Turmeric"],
-    applications: ["Spice Blends", "Nutraceuticals", "Food Coloring", "Cosmetics & Wellness"],
+    varieties: [
+      { name: "Alleppey Finger Turmeric", details: "Kerala · High curcumin 5–7% · Deep orange color · Usage: Extraction, nutraceuticals" },
+      { name: "Erode Turmeric", details: "Tamil Nadu · Curcumin: 2–2.5% · High polish finish · Usage: Bulk trade, spice blends" },
+      { name: "Rajapuri Turmeric", details: "Maharashtra · Bold fingers, mild aroma · Usage: Culinary, retail export" },
+      { name: "Nizamabad Bulb Turmeric", details: "Telangana · Bulb type, high yield · Usage: Powder production, food coloring" },
+      { name: "Salem Turmeric", details: "Tamil Nadu · Curcumin: ~3–3.5% · Bright yellow · Usage: Everyday cooking, export" },
+      { name: "Sangli Turmeric", details: "Maharashtra · Fine texture, golden hue · Usage: Cosmetics, spice blends" },
+      { name: "Madras Turmeric", details: "Tamil Nadu · Mild curcumin, light color · Usage: Food processing, seasoning" },
+    ],
+    applications: [
+      "Culinary — Key ingredient in curries, sauces, and spice blends; adds natural color and earthy aroma to global dishes",
+      "Pharmaceutical & Ayurvedic — Used in immunity boosters, supplements, and healing formulations",
+      "Cosmetic — Found in creams, face masks, and herbal skincare products",
+      "Textile & Dyeing — Used as a natural colorant for fabrics and crafts",
+    ],
   },
+
   {
-    name: "Cumin Seeds",
+    name: "Cumin Seeds (Jeera)",
     image: cuminImg,
     tagline: "Earthy. Aromatic. Essential.",
     description:
-      "Cumin Seeds are one of the most widely traded spices globally, valued for their warm, earthy aroma and distinct flavor. Mydex cumin is cleaned, sortex-processed and graded by purity and oil content, meeting international food-safety and export standards.",
+      "Earthy, Fragrant, and Timelessly Indian\n\nCumin — known in India as Jeera — is one of the world's most ancient and beloved spices. Its warm, nutty aroma and earthy taste make it a staple in cuisines from India to the Middle East, Europe, and Latin America.\n\nAt Nesbee Spices & Foods Pvt. Ltd., we bring you premium-quality Indian cumin seeds, carefully sourced from the finest farms in Gujarat and Rajasthan.\n\nRenowned for their high oil content, bold aroma, and uniform size, our cumin seeds are celebrated globally for their purity, potency, and authentic flavor.",
     healthBenefits: [
       "Aids digestion",
       "Rich in iron",
       "Supports immune function",
       "Contains natural antioxidants",
     ],
-    varieties: ["Singapore Quality", "Europe Quality", "99% Pure", "Cumin Powder"],
-    applications: ["Spice Blends & Masalas", "Snack Seasoning", "Food Processing", "Retail Packing"],
+    varieties: [
+      { name: "European Grade", details: "Purity: 99.5%+ · Strict pesticide residue limits · Usage: EU-compliant premium export" },
+      { name: "Singapore Grade", details: "Purity: 99% · Sortex cleaned, uniform size · Usage: Southeast Asia premium export" },
+      { name: "Gujarat", details: "Bold aroma, high volatile oil · Machine cleaned · Usage: Bulk trade, food processing" },
+      { name: "Rajasthan", details: "Earthy flavor, uniform grain · Low foreign matter · Usage: Spice blends, masalas" },
+    ],
+    applications: [
+      "Culinary — Key ingredient in spice blends like garam masala and curry powder; used in soups, sauces, rice dishes, and pickles in Indian, Mexican, and Middle Eastern cooking",
+      "Pharmaceutical & Ayurvedic — Used in digestive tonics, herbal teas, and immunity boosters",
+      "Cosmetic & Wellness — Used in skincare for antibacterial and anti-inflammatory properties",
+      "Essential Oils — Extracted for aromatherapy and medicinal formulations",
+    ],
   },
+
   {
-    name: "Coriander Seeds",
+    name: "Coriander Seeds (Dhaniya)",
     image: corianderImg,
     tagline: "Citrusy. Mild. Timeless Flavor.",
     description:
-      "Coriander Seeds bring a mild, citrusy warmth to cuisines across the world. Mydex sources whole, uncrushed seeds that are sortex-cleaned and graded by size and essential oil content, ideal for spice blends, extraction and direct retail use.",
+      "Mild, Citrusy, and Wonderfully Aromatic\n\nSubtle yet powerful, Indian Coriander Seeds are the quiet hero of countless kitchens around the world. Known for their warm, citrusy aroma and sweet undertone, they add balance, freshness, and depth to every dish they touch.\n\nAt Nesbee Spices & Foods Pvt. Ltd., we export premium-grade coriander seeds sourced from India's leading spice belts — Gujarat, Rajasthan, and Madhya Pradesh.\n\nCarefully cleaned, graded, and processed under strict hygiene standards, our coriander seeds are prized for their uniform size, natural oils, and bold aroma, making them a favorite among importers, retailers, and food manufacturers worldwide.",
     healthBenefits: [
       "Supports digestive health",
       "Rich in dietary fiber",
       "Contains antioxidants",
       "May help regulate blood sugar",
     ],
-    varieties: ["Eagle Quality", "Scooter Quality", "Coriander Powder", "Split Coriander"],
-    applications: ["Spice Blends", "Extraction & Oleoresins", "Food Processing", "Retail Packing"],
+    varieties: [
+      { name: "Eagle", details: "Bold seed size · High oil content · Premium sortex cleaned · Usage: Premium retail, export" },
+      { name: "Scooter", details: "Medium seed size · Consistent color & aroma · Usage: Bulk trade, spice blends" },
+      { name: "Single Parrot", details: "Uniform grade · Good oil content · Usage: Food processing, masalas" },
+      { name: "Double Parrot", details: "Larger bold seeds · Strong aroma · Usage: Premium export, direct retail" },
+      { name: "Split", details: "Naturally split seeds · High surface area · Usage: Oil extraction, oleoresin processing" },
+    ],
+    applications: [
+      "Culinary — Key ingredient in curry powders, garam masala, and spice blends; used whole for pickling and seasoning; ground form enhances sauces, soups, and chutneys",
+      "Pharmaceutical & Ayurvedic — Used in traditional medicines for digestion, detox, and immunity",
+      "Cosmetic & Personal Care — Used in skincare formulations for its anti-inflammatory and aromatic qualities",
+      "Essential Oils & Extracts — Processed into essential oils used in perfumes, soaps, and herbal products",
+    ],
   },
+
   {
-    name: "Fennel Seeds",
+    name: "Fennel Seeds (Saunf)",
     image: fennelImg,
     tagline: "Sweet. Aromatic. Naturally Soothing.",
     description:
-      "Fennel Seeds offer a distinct sweet, licorice-like aroma and are used across culinary, medicinal and mouth-freshener applications. Mydex fennel is machine-cleaned and graded for size and bold green color, ensuring consistent quality across every shipment.",
+      "Nature's Fragrant Gift from India\n\nDelicately sweet, refreshing, and deeply aromatic — Indian Fennel Seeds (Saunf) are one of nature's most delightful spices. Known for their cooling taste and vibrant green hue, they bring a touch of freshness to both the palate and the senses.\n\nAt Nesbee Spices & Foods Pvt. Ltd., we export premium-quality fennel seeds sourced from India's prime growing regions — Rajasthan and Gujarat. Our fennel seeds are carefully cleaned, graded, and processed to preserve their natural color, flavor, and essential oils, ensuring every batch meets the highest global quality standards.\n\nFrom spice blends to herbal teas and confectionery, Nesbee's fennel seeds bring purity, freshness, and authenticity to every use.",
     healthBenefits: [
       "Supports digestion",
       "Rich in fiber and antioxidants",
       "Traditionally used to freshen breath",
       "May support respiratory health",
     ],
-    varieties: ["Bold Fennel", "Machine Clean Fennel", "Fennel Powder", "Selected Fennel"],
-    applications: ["Culinary Use", "Mouth Fresheners", "Herbal & Ayurvedic Products", "Food Processing"],
+    varieties: [
+      { name: "Premium Green", details: "Deep vibrant green · Bold size · High essential oil content · Usage: Premium retail, mouth fresheners" },
+      { name: "Regular", details: "Uniform seed size · Consistent color & aroma · Usage: Bulk export, spice blends" },
+      { name: "Bold", details: "Large bold seeds · Strong aroma · Sortex cleaned · Usage: Food processing, retail packs" },
+      { name: "Split", details: "Naturally split seeds · High surface area · Usage: Oil extraction, herbal processing" },
+      { name: "Organic", details: "Certified organic · No pesticide residue · Usage: Organic retail, herbal & wellness products" },
+    ],
+    applications: [
+      "Culinary — Essential in Indian curries, pickles, and baked goods; used in spice blends, teas, and beverages; added to confectionery for aroma and sweetness",
+      "Pharmaceutical & Herbal — Used in digestive tonics, cough syrups, and herbal teas",
+      "Cosmetic — Used in natural skincare and oral care products for freshness",
+      "Oil Extraction — Fennel seed oil is widely used in perfumes, aromatherapy, and herbal formulations",
+    ],
   },
+
   {
-    name: "Fenugreek Seeds",
+    name: "Fenugreek Seeds (Methi)",
     image: fenugreekImg,
     tagline: "Bitter-Sweet. Nutrient-Dense. Time-Tested.",
     description:
-      "Fenugreek Seeds are a traditional ingredient known for their distinct bitter-sweet flavor and long list of wellness benefits. Mydex fenugreek is sourced from prime belts, cleaned and graded to ensure purity, making it suitable for culinary, pharmaceutical and nutraceutical applications.",
+      "Earthy, Aromatic, and Naturally Nutritious\n\nDistinctively bold, slightly bitter, and deeply aromatic — Indian Fenugreek Seeds (Methi) are one of the oldest cultivated spices known to humankind. Revered for their culinary versatility and medicinal value, these tiny golden seeds are a cornerstone of Indian tradition and an increasingly popular ingredient in global cuisines and wellness products.\n\nAt Nesbee Spices & Foods Pvt. Ltd., we supply and export premium-grade fenugreek seeds grown in the fertile lands of Rajasthan and Gujarat, where ideal soil and climate conditions yield seeds rich in flavor, color, and nutrition.\n\nEach Nesbee fenugreek seed tells a story of purity, potency, and care — connecting ancient Indian heritage to modern health-conscious consumers worldwide.",
     healthBenefits: [
       "Supports blood sugar regulation",
       "Rich in soluble fiber",
       "May support lactation",
       "Contains antioxidant compounds",
     ],
-    varieties: ["Whole Fenugreek", "Fenugreek Powder", "Kasuri Methi"],
-    applications: ["Spice Blends", "Pharmaceutical Extracts", "Nutraceuticals", "Food Processing"],
+    varieties: [
+      { name: "Machine Cleaned", details: "Amber-yellow seed · Low foreign matter · Uniform size · Usage: Bulk export, food processing" },
+      { name: "Sortex Cleaned", details: "Optical sortex processed · 99%+ purity · Usage: Premium retail, pharmaceutical grade" },
+      { name: "Organic", details: "Certified organic · No pesticide residue · Usage: Organic retail, nutraceuticals, wellness products" },
+    ],
+    applications: [
+      "Culinary — Integral to curry powders, pickles, and spice blends; used as a tempering agent in Indian, African, and Mediterranean cuisines; ground into powder for sauces and pastes",
+      "Pharmaceutical & Ayurvedic — Used in herbal formulations for blood sugar management, digestion, and immunity",
+      "Cosmetic & Nutraceutical — Common in hair oils, shampoos, and dietary supplements",
+      "Industrial — Used as a base for flavoring extracts and natural thickeners",
+    ],
   },
+
   {
-    name: "Mustard Seeds",
+    name: "Mustard Seeds (Sarson/Rai)",
     image: mustardImg,
-    tagline: "Pungent. Versatile. Farm Fresh.",
+    tagline: "Small in Size, Big in Flavor",
     description:
-      "Mustard Seeds are a staple across Indian and international kitchens, used for tempering, oil extraction and condiment production. Mydex mustard seeds are sortex-cleaned and graded by size and purity, available in yellow and black varieties for diverse industrial applications.",
-    healthBenefits: [
-      "Rich in selenium and magnesium",
-      "Contains anti-inflammatory compounds",
-      "Good source of omega-3 fatty acids",
-      "Supports metabolic health",
+      "Pungent, powerful, and full of personality — Indian Mustard Seeds (Rai) are among the most cherished spices across global cuisines. From sizzling Indian curries to tangy European mustards, these tiny seeds pack a punch of flavor that brings dishes to life. At Nesbee Spices & Foods Pvt. Ltd., we source and export premium-quality mustard seeds grown in India's leading agricultural regions — Rajasthan, Gujarat, and Madhya Pradesh. Each batch is meticulously cleaned, sorted, and tested, ensuring perfect aroma, oil content, and purity that meet the standards of the global spice trade. With Nesbee, every mustard seed carries the authentic essence of India — robust, earthy, and full of character.",
+    varieties: [
+      {
+        name: "Yellow",
+        scientificName: "Brassica Alba",
+        details: "Mild pungency, golden color · Usage: Condiments, sauces",
+      },
+      {
+        name: "Black",
+        scientificName: "Brassica Nigra",
+        details: "Sharp pungency, dark seed · Usage: Tempering, oil extraction",
+      },
+      {
+        name: "Brown",
+        scientificName: "Brassica Juncea",
+        details: "Medium pungency · Usage: Pickling, spice blends",
+      },
     ],
-    varieties: ["Yellow Mustard", "Black Mustard", "Brown Mustard", "Mustard Powder"],
-    applications: ["Oil Extraction", "Condiments & Sauces", "Spice Blends", "Food Processing"],
+    applications: [
+      "Tempering and seasoning in Indian and Asian dishes",
+      "Essential in sauces, pickles, condiments, and salad dressings",
+      "Used in mustard paste and oil production",
+      "Extraction of mustard oil, used in cooking and massage",
+      "Mustard seed powder used in herbal and detox formulations",
+      "Employed in preservative and flavoring industries",
+      "Used in skincare and haircare oils for natural nourishment",
+    ],
   },
+
   {
-    name: "Annatto Seeds",
+    name: "Annatto Seeds (Sindoori)",
     image: annattoImg,
-    tagline: "Natural Color. Subtle Flavor.",
+    tagline: "Bringing Nature's Red-Gold to the World",
     description:
-      "Annatto Seeds are prized as a natural coloring agent, delivering a warm reddish-orange hue to food products without synthetic additives. Mydex supplies cleaned, graded annatto seeds suited for food coloring, cosmetics and natural dye applications worldwide.",
-    healthBenefits: [
-      "Natural source of carotenoids",
-      "Contains antioxidant properties",
-      "Free from synthetic additives",
+      "Vibrant, versatile, and 100% natural — Indian Annatto Seeds (Bixa Orellana) are a radiant gift from nature. Known for their deep orange-red hue, these seeds have been used for centuries as a natural colorant and flavor enhancer in foods, cosmetics, and textiles. At Nesbee Spices & Foods Pvt. Ltd., we supply and export premium-quality annatto seeds, carefully harvested from India's tropical regions where the air, soil, and sunlight combine to create the perfect pigment potency. Our annatto products are renowned globally for their rich color value, purity, and natural extraction properties — making them a preferred choice for food manufacturers, cosmetic brands, and health-conscious consumers worldwide.",
+    varieties: [
+      {
+        name: "Organic",
+        details: "Grown without synthetic inputs · Usage: Clean-label food coloring",
+      },
+      {
+        name: "Conventional",
+        details: "Standard cultivation · Usage: Bulk food & industrial coloring",
+      },
+      {
+        name: "Annatto Powder",
+        details: "Finely ground, concentrated pigment · Usage: Food & cosmetic coloring",
+      },
+      {
+        name: "Annatto Extract",
+        scientificName: "Bixin & Norbixin",
+        details: "Liquid/oil-based extract · Usage: Industrial coloring applications",
+      },
     ],
-    varieties: ["Whole Annatto Seed", "Annatto Powder", "Annatto Extract"],
-    applications: ["Natural Food Coloring", "Cosmetics", "Textile Dyeing", "Food Processing"],
+    applications: [
+      "Used as a coloring agent in cheese, butter, margarine, snacks, and beverages",
+      "Blended into spice powders and sauces for natural tinting",
+      "Used in organic and vegan food products as a clean-label pigment",
+      "Found in lipsticks, soaps, and natural skin creams",
+      "Used in herbal supplements and health formulations",
+      "Used in eco-friendly dyeing of fabrics and natural fibers",
+    ],
   },
+
   {
-    name: "Black Pepper",
+    name: "Black Pepper (Kali Mirch)",
     image: blackPepperImg,
-    tagline: "The King of Spices.",
+    tagline: "Bold, Aromatic, and Timelessly Indian",
     description:
-      "Black Pepper has earned its place as the world's most traded spice, known for its sharp aroma and pungent bite. Mydex sources bold, high-density peppercorns that are cleaned and graded for oil content and purity, meeting strict international export benchmarks.",
-    healthBenefits: [
-      "Contains piperine, a powerful antioxidant",
-      "Supports digestion",
-      "May enhance nutrient absorption",
-      "Rich in essential minerals",
+      "Known across the world as the \"King of Spices,\" Indian Black Pepper (Kali Mirch) is one of the oldest and most prized seasonings in human history. Native to the lush Western Ghats of India, black pepper was once known as black gold — treasured for its rich aroma, sharp heat, and health-boosting qualities. At Nesbee Spices & Foods Pvt. Ltd., we take pride in exporting premium Indian black pepper sourced from Kerala, Karnataka, and Tamil Nadu — regions famed for producing pepper of exceptional pungency, boldness, and essential oil content. Each peppercorn tells a story — of tropical rain, fertile soil, and India's legendary spice heritage brought to life in every grain.",
+    varieties: [
+      {
+        name: "Malabar Garbled",
+        scientificName: "MG1 / MG2",
+        details: "Bold, clean berries · Usage: Premium export grade",
+      },
+      {
+        name: "Tellicherry Garbled",
+        scientificName: "TGSEB / TGEB",
+        details: "Large, dense berries · Usage: Premium culinary export",
+      },
+      {
+        name: "Malabar Ungarbled",
+        scientificName: "MUG",
+        details: "Unsorted, natural grade · Usage: Bulk trade, processing",
+      },
+      {
+        name: "Organic",
+        details: "Grown without synthetic inputs · Usage: Clean-label culinary export",
+      },
     ],
-    varieties: ["Malabar Garbled", "MG1", "Whole Black Pepper", "Black Pepper Powder"],
-    applications: ["Spice Blends", "Food Processing", "Extraction & Oleoresins", "Retail Packing"],
+    applications: [
+      "A key seasoning in sauces, soups, marinades, and spice blends",
+      "Used whole, cracked, or ground for diverse cuisines worldwide",
+      "Enhances flavor in meats, vegetables, and beverages",
+      "Used in Ayurvedic and modern supplements to improve nutrient absorption",
+      "Key ingredient in digestive and anti-inflammatory formulations",
+      "Used in essential oil production and natural preservatives",
+    ],
   },
+
   {
-    name: "Green Cardamom",
+    name: "Green Cardamom (Elaichi)",
     image: greenCardamomImg,
-    tagline: "The Queen of Spices.",
+    tagline: "Elegant Aroma. Exquisite Flavor. Endlessly Indian.",
     description:
-      "Green Cardamom is one of the most valuable spices in the world, treasured for its intense aroma and delicate sweetness. Mydex sources hand-picked cardamom pods, graded by size (bold, standard) and color, packed to preserve their essential oils and freshness.",
-    healthBenefits: [
-      "Rich in antioxidants",
-      "Supports digestive health",
-      "May help regulate blood pressure",
-      "Contains anti-inflammatory compounds",
+      "Fragrant, luxurious, and deeply evocative — Indian Green Cardamom (Elaichi) is known across the world as the \"Queen of Spices.\" Its enchanting aroma and subtly sweet flavor make it one of the most treasured spices in both Eastern and Western cuisines. At Nesbee Spices & Foods Pvt. Ltd., we proudly export premium-quality green cardamom sourced from the lush plantations of Kerala, Tamil Nadu, and Karnataka — regions blessed with tropical rains and fertile soils that yield the world's most aromatic pods. Our cardamom embodies the essence of India — rich in aroma, refined in flavor, and revered for purity.",
+    varieties: [
+      {
+        name: "Bold",
+        scientificName: "8mm & above",
+        details: "Deep green pods · Usage: Premium retail, gifting",
+      },
+      {
+        name: "Superior",
+        scientificName: "7–8mm",
+        details: "Strong aroma · Usage: Culinary, beverage flavoring",
+      },
+      {
+        name: "Medium",
+        scientificName: "6–7mm",
+        details: "Standard grade · Usage: Bulk trade, confectionery",
+      },
+      {
+        name: "Small",
+        scientificName: "Below 6mm",
+        details: "Compact pods · Usage: Processing, powder production",
+      },
+      {
+        name: "Organic",
+        details: "Grown without synthetic inputs · Usage: Clean-label culinary export",
+      },
     ],
-    varieties: ["8mm Bold", "7mm", "6mm", "Cardamom Powder"],
-    applications: ["Culinary Use", "Beverage Flavoring", "Confectionery", "Ayurvedic Formulations"],
+    applications: [
+      "Enhances flavor in curries, desserts, and beverages",
+      "A key ingredient in chai blends, biryanis, and sweets",
+      "Used in baking, confectionery, and flavored syrups",
+      "Used in Ayurvedic tonics and natural digestion aids",
+      "Added to herbal teas for aroma and detoxifying effects",
+      "Cardamom oil used in perfumes, soaps, and essential oils",
+      "Added to mouth fresheners and natural breath sprays",
+    ],
   },
+
   {
-    name: "Black Cardamom",
+    name: "Black Cardamom (Badi Elaichi)",
     image: blackCardamomImg,
-    tagline: "Smoky. Bold. Distinctly Aromatic.",
+    tagline: "Deep Aroma. Bold Flavor. True Indian Character.",
     description:
-      "Black Cardamom delivers a smoky, robust flavor distinct from its green counterpart, widely used in savory dishes and masalas. Mydex sources sun-dried, hand-sorted pods graded for size and aroma intensity, ideal for culinary and spice-blend manufacturers.",
-    healthBenefits: [
-      "Supports digestive health",
-      "Contains antioxidant compounds",
-      "Traditionally used for respiratory wellness",
+      "Rich, smoky, and irresistibly aromatic — Indian Black Cardamom (Badi Elaichi) stands as one of India's most powerful and distinctive spices. Known for its earthy flavor and warm notes, it brings depth and richness to both traditional and gourmet dishes worldwide. At Nesbee Spices & Foods Pvt. Ltd., we export premium-quality black cardamom sourced from India's northeastern regions, where the perfect blend of altitude, humidity, and soil yields pods packed with flavor and essential oils. Our black cardamom captures the essence of India's mountains — bold, smoky, and full of character — making it a favorite among chefs, food processors, and spice traders across continents.",
+    varieties: [
+      {
+        name: "Whole Pods",
+        details: "Sun-dried, smoky aroma · Usage: Masalas, savory dishes",
+      },
+      {
+        name: "Split Pods",
+        details: "Cracked open pods · Usage: Faster infusion, spice blends",
+      },
+      {
+        name: "Seeds Only",
+        scientificName: "Decorticated",
+        details: "Pod-free seeds · Usage: Grinding, powder production",
+      },
+      {
+        name: "Organic",
+        details: "Grown without synthetic inputs · Usage: Clean-label culinary export",
+      },
     ],
-    varieties: ["Whole Black Cardamom", "Black Cardamom Powder"],
-    applications: ["Spice Blends & Masalas", "Culinary Use", "Ayurvedic Formulations"],
-  },
-  {
-    name: "Cloves",
-    image: cloveImg,
-    tagline: "Intense Aroma. Timeless Spice.",
-    description:
-      "Cloves are among the most aromatic spices, used in cuisines, oral care and traditional medicine worldwide. Mydex cloves are hand-picked, sun-dried and graded for size and oil content, ensuring a strong, consistent aroma across every batch.",
-    healthBenefits: [
-      "Rich in eugenol, a natural antioxidant",
-      "Supports oral health",
-      "Contains anti-inflammatory properties",
-      "Traditionally used for digestive support",
+    applications: [
+      "Essential in Indian curries, biryanis, and garam masala blends",
+      "Adds depth to sauces, soups, and stews",
+      "Used in meat marinades, pickles, and smoked foods",
+      "Used in Ayurvedic medicines and digestive tonics",
+      "Extracted for essential oils and natural aroma compounds",
+      "Used in perfumery, aromatherapy, and natural deodorants",
     ],
-    varieties: ["Whole Cloves", "Clove Powder", "Clove Oil"],
-    applications: ["Culinary Use", "Oral Care Products", "Ayurvedic Formulations", "Extraction & Oleoresins"],
   },
-  {
-    name: "Bay Leaves",
-    image: bayLeafImg,
-    tagline: "Subtle. Fragrant. Kitchen Essential.",
-    description:
-      "Bay Leaves add a subtle herbal aroma to slow-cooked dishes, soups and stocks around the world. Mydex sources sun-dried bay leaves, sorted for size and color, and carefully packed to retain their natural fragrance during export.",
-    healthBenefits: [
-      "Contains antioxidant compounds",
-      "Traditionally used to support digestion",
-      "May help reduce inflammation",
-    ],
-    varieties: ["Whole Bay Leaves", "Broken Bay Leaves", "Bay Leaf Powder"],
-    applications: ["Culinary Use", "Spice Blends", "Herbal Products"],
-  },
-  {
-    name: "Cassia (Cinnamon Bark)",
-    image: cassiaImg,
-    tagline: "Warm. Sweet. Naturally Bold.",
-    description:
-      "Cassia, often referred to as Indian Cinnamon, offers a bold, sweet-spicy warmth used across culinary and beverage applications. Mydex sources sun-dried bark, graded by thickness and curl, and processed into quills, splits or powder for global buyers.",
-    healthBenefits: [
-      "Rich in antioxidants",
-      "May support healthy blood sugar levels",
-      "Contains anti-inflammatory compounds",
-    ],
-    varieties: ["Cassia Quills", "Cassia Splits", "Cassia Powder"],
-    applications: ["Culinary Use", "Beverage Flavoring", "Bakery", "Spice Blends"],
-  },
-  {
-    name: "Dill Seeds (Sowa)",
-    image: dillSeedsImg,
-    tagline: "Aromatic. Digestive. Time-Honored.",
-    description:
-      "Dill Seeds, known locally as Sowa, carry a warm, slightly bitter aroma and are widely used in pickling, culinary preparations and traditional remedies. Mydex sources clean, well-matured seeds graded for purity and consistent aroma.",
-    healthBenefits: [
-      "Traditionally used to support digestion",
-      "Contains antioxidant compounds",
-      "Rich in essential minerals",
-    ],
-    varieties: ["Whole Dill Seed", "Dill Seed Powder"],
-    applications: ["Pickling", "Culinary Use", "Herbal & Ayurvedic Products"],
-  },
-  {
-    name: "Dry Ginger",
-    image: dryGingerImg,
-    tagline: "Warming. Pungent. Naturally Potent.",
-    description:
-      "Dry Ginger is a concentrated form of fresh ginger, valued for its intense warmth and long list of traditional uses. Mydex processes sun-dried ginger into whole, split or powdered form, graded for oleoresin content and purity to meet pharmaceutical and culinary demands.",
-    healthBenefits: [
-      "Supports digestive health",
-      "Contains gingerol, a powerful antioxidant",
-      "Traditionally used to relieve nausea",
-      "May help reduce inflammation",
-    ],
-    varieties: ["Dry Ginger Whole", "Dry Ginger Split", "Ginger Powder"],
-    applications: ["Culinary Use", "Nutraceuticals", "Ayurvedic Formulations", "Beverage Industry"],
-  },
-  {
-    name: "Carom Seeds (Ajwain)",
-    image: caromSeedsImg,
-    tagline: "Sharp. Medicinal. Deeply Aromatic.",
-    description:
-      "Carom Seeds, known as Ajwain, are prized for their sharp, thyme-like aroma and long-standing use in digestive remedies. Mydex sources cleaned, sortex-processed seeds graded for purity and essential oil content, suited for culinary and pharmaceutical buyers.",
-    healthBenefits: [
-      "Traditionally used to relieve indigestion",
-      "Contains thymol, a natural antimicrobial",
-      "Supports respiratory wellness",
-    ],
-    varieties: ["Whole Ajwain", "Ajwain Powder"],
-    applications: ["Culinary Use", "Ayurvedic Formulations", "Pharmaceutical Extracts"],
-  },
-  {
-    name: "Chilli Seeds",
-    image: chilliSeedsImg,
-    tagline: "Concentrated Heat. Versatile Use.",
-    description:
-      "Chilli Seeds are extracted from premium dry red chillies, offering a concentrated source of natural heat and color. Mydex processes and grades chilli seeds for use in oil extraction, spice manufacturing and agricultural applications.",
-    healthBenefits: [
-      "Contains capsaicin compounds",
-      "Rich in natural oils",
-    ],
-    varieties: ["Whole Chilli Seed", "Crushed Chilli Seed"],
-    applications: ["Oil Extraction", "Spice Manufacturing", "Agricultural Use"],
-  },
+
+{
+  name: "Cloves (Laung)",
+  image: cloveImg,
+  tagline: "Intense Aroma. Timeless Healing. Pure Indian Essence.",
+  description:
+    "Rich, warm, and powerfully aromatic — Indian Cloves (Laung) are among the most treasured spices in global trade and traditional medicine. Their distinct flavor and unmistakable fragrance have made them a staple in kitchens, apothecaries, and perfumeries for centuries. At Nesbee Spices & Foods Pvt. Ltd., we export premium-quality Indian cloves sourced from India's renowned spice regions — Kerala, Tamil Nadu, and Karnataka — where the perfect tropical climate nurtures clove buds bursting with essential oil, warmth, and natural intensity. Each Nesbee clove is a tiny powerhouse of flavor, aroma, and wellness, delivering purity that defines India's spice legacy.",
+  varieties: [
+    {
+      name: "Zanzibar Cloves",
+      scientificName: "Indian Origin",
+      details: "Hand-picked, sun-dried · High oil content · Usage: Culinary, oral care",
+    },
+    {
+      name: "Madagascar Type Cloves",
+      scientificName: "Indian Cultivation",
+      details: "Bold aroma, plump buds · Usage: Premium export, spice blends",
+    },
+    {
+      name: "Clove Stems & Clove Powder",
+      details: "Finely ground stems and buds · Usage: Spice blends, extraction",
+    },
+    {
+      name: "Organic",
+      details: "Grown without synthetic inputs · Usage: Clean-label culinary export",
+    },
+  ],
+  applications: [
+    "Essential in curries, biryanis, soups, and stews",
+    "Used in spice blends like garam masala and chai masala",
+    "Adds warmth to bakery, desserts, and beverages",
+    "Used in pain-relief balms, toothpastes, and cough syrups",
+    "Common in natural antiseptic and anti-inflammatory products",
+    "Extracted for clove essential oil used in perfumes and skincare",
+    "Used in soaps and oral hygiene products for its soothing scent",
+  ],
+},
+
+ {
+  name: "Bay Leaves (Tej Patta)",
+  image: bayLeafImg,
+  tagline: "Subtle Aroma. Timeless Taste. A Leaf from India's Heritage.",
+  description:
+    "Elegant and aromatic, Indian Bay Leaves (Tej Patta) are one of the most ancient and beloved flavoring agents in global cuisine. Known for their mild yet distinctive fragrance, they infuse dishes with depth, warmth, and character. At Nesbee Spices & Foods Pvt. Ltd., we export premium-quality bay leaves sourced from India's northeastern and Himalayan regions — areas renowned for their pure air, rich soil, and ideal climate that produce leaves with superior color, aroma, and natural oil content. Each bay leaf from Nesbee is more than a spice — it's a whisper of India's culinary history, carried to kitchens around the world.",
+  varieties: [
+    {
+      name: "Whole",
+      scientificName: "Grade A",
+      details: "Sun-dried, intact leaf · Usage: Soups, stocks, slow-cooked dishes",
+    },
+    {
+      name: "Broken",
+      scientificName: "Grade B",
+      details: "Fragmented leaf, cost-effective · Usage: Bulk food processing",
+    },
+    {
+      name: "Ground Bay Leaf Powder",
+      details: "Finely ground · Usage: Spice blends, herbal products",
+    },
+  ],
+  applications: [
+    "Essential in curries, rice dishes, soups, and sauces",
+    "Used in Indian garam masala and Mediterranean cuisines",
+    "Adds depth to marinades, stews, and slow-cooked recipes",
+    "Used in traditional medicine for digestion and respiratory health",
+    "Infused into teas and essential oils for therapeutic benefits",
+    "Used in perfumery, potpourri, and natural skincare formulations",
+  ],
+},
+
+ {
+  name: "Cassia / Cinnamon Bark (Dalchini)",
+  image: cassiaImg,
+  tagline: "Spice of Warmth. Symbol of Tradition. Essence of India.",
+  description:
+    "Fragrant, woody, and comforting — Indian Cassia (Dalchini) is one of the world's most cherished spices, adding warmth and depth to cuisines and creations across continents. Often known as Indian cinnamon, cassia's sweet-spicy flavor and rich aroma make it a staple ingredient in baking, beverages, curries, and herbal blends alike. At Nesbee Spices & Foods Pvt. Ltd., we export premium-quality Indian cassia sourced from the spice-rich regions of Tamil Nadu, Kerala, and North-Eastern India. Every bark we select is naturally harvested, sun-dried, and carefully graded for color, texture, and essential oil content — ensuring unmatched purity and performance in every shipment. Our cassia carries the warmth of India's spice heritage — one that brings comfort to cuisines and value to brands worldwide.",
+  varieties: [
+    {
+      name: "Cassia Sticks",
+      scientificName: "Quills",
+      details: "Rolled bark sticks · Bold, sweet-spicy · Usage: Beverage flavoring, culinary",
+    },
+    {
+      name: "Cassia Broken Pieces",
+      scientificName: "Chips",
+      details: "Fragmented bark pieces · Usage: Bulk trade, spice blends",
+    },
+    {
+      name: "Cassia Powder",
+      details: "Finely ground bark · Usage: Bakery, spice blends",
+    },
+  ],
+  applications: [
+    "Used in curries, spice mixes, desserts, and bakery products",
+    "Adds flavor to teas, lattes, and mulled wines",
+    "A key ingredient in garam masala and chai blends",
+    "Used in herbal medicines for diabetes, digestion, and inflammation",
+    "Added to tonics, supplements, and traditional remedies",
+    "Cassia oil is used in perfumes, soaps, and aromatherapy",
+    "Used in incense, natural room fragrances, and flavor extracts",
+  ],
+},
+
+ {
+  name: "Dill Seeds (Sowa)",
+  image: dillSeedsImg,
+  tagline: "Mildly Sweet. Distinctly Aromatic. Wonderfully Indian.",
+  description:
+    "Delicate yet distinctive, Indian Dill Seeds (Suva or Sowa) bring a touch of herbal freshness and soft sweetness to kitchens and wellness blends across the world. Known for their unique aroma and mild, anise-like flavor, these seeds are as versatile as they are healthful. At Nesbee Spices & Foods Pvt. Ltd., we export premium-grade dill seeds cultivated in the fertile regions of Gujarat and Rajasthan, where perfect climate conditions ensure seeds with high essential oil content, superior aroma, and rich flavor. From culinary creations to pharmaceutical formulations, Nesbee's dill seeds stand for purity, potency, and global quality excellence.",
+  varieties: [
+    {
+      name: "Whole",
+      details: "Well-matured, intact seed · Usage: Pickling, culinary use",
+    },
+    {
+      name: "Sortex Cleaned",
+      details: "Optical sortex processed, high purity · Usage: Premium retail, export",
+    },
+    {
+      name: "Organic",
+      details: "Grown without synthetic inputs · Usage: Clean-label culinary, wellness products",
+    },
+  ],
+  applications: [
+    "Used in pickles, soups, curries, and salads",
+    "Adds flavor to breads, sauces, and seasoning blends",
+    "Commonly used in European and Middle Eastern cuisines",
+    "Used in digestive tonics, teas, and syrups",
+    "Extracted for essential oils in herbal remedies",
+    "Dill seed oil used in perfumes, soaps, and skincare products",
+    "Added to aromatherapy blends for stress relief",
+  ],
+},
+
+{
+  name: "Dry Ginger (Sonth)",
+  image: dryGingerImg,
+  tagline: "Zesty Aroma. Healing Power. Ancient Indian Vitality.",
+  description:
+    "Fiery, fragrant, and full of life — Indian Dry Ginger (Sonth / Sukku) is one of nature's most potent spices, loved not only for its bold flavor but also for its remarkable health benefits. For centuries, ginger has been celebrated in Ayurveda as a warming tonic that revitalizes the body, strengthens immunity, and enhances digestion. At Nesbee Spices & Foods Pvt. Ltd., we export premium-quality dry ginger sourced from India's finest ginger-growing regions — Kerala, Meghalaya, and Sikkim. Our ginger is naturally sun-dried and processed to retain its strong aroma, sharp taste, and high volatile oil content, ensuring superior performance in culinary and pharmaceutical applications alike. Every root we export carries the legacy of India's spice heritage — pure, powerful, and globally trusted.",
+  varieties: [
+    {
+      name: "Whole",
+      scientificName: "Split / Whole Form",
+      details: "Sun-dried rhizome · Usage: Ayurvedic use, culinary",
+    },
+    {
+      name: "Ginger Powder",
+      scientificName: "Ground Form",
+      details: "Finely ground, high oleoresin content · Usage: Beverages, nutraceuticals",
+    },
+    {
+      name: "Coarse Cut Ginger Flakes",
+      details: "Chopped, faster infusion · Usage: Extraction, food processing",
+    },
+  ],
+  applications: [
+    "Adds warmth and flavor to spice mixes, baked goods, and beverages",
+    "Used in masala chai, curries, soups, and candies",
+    "Common in sauces, marinades, and desserts",
+    "Used in traditional medicines, tonics, and pain-relief formulations",
+    "Common ingredient in herbal teas and supplements",
+    "Used in the production of ginger oil and oleoresins",
+    "Added to cosmetics and aromatherapy products for soothing properties",
+  ],
+},
+
+{
+  name: "Carom Seeds (Ajwain)",
+  image: caromSeedsImg,
+  tagline: "Bold Flavor. Ancient Remedy. True Indian Strength.",
+  description:
+    "Pungent, peppery, and powerfully aromatic — Indian Carom Seeds (Ajwain) are one of the most distinctive and therapeutic spices in Indian tradition. Known for their sharp taste and intense aroma, ajwain seeds are both a culinary essential and a natural healer. At Nesbee Spices & Foods Pvt. Ltd., we export premium-grade carom seeds cultivated in the arid yet fertile regions of Rajasthan and Gujarat, where the warm climate produces seeds rich in thymol, the compound responsible for their signature flavor and health benefits. Each Nesbee ajwain seed is a symbol of India's traditional wisdom blended with modern purity standards — spicy, powerful, and remarkably pure.",
+  varieties: [
+    {
+      name: "Machine Cleaned",
+      details: "Amber-brown seed · Low foreign matter · Usage: Bulk export, food processing",
+    },
+    {
+      name: "Sortex Cleaned",
+      details: "Optical sortex processed · High purity · Usage: Premium retail, pharmaceutical grade",
+    },
+    {
+      name: "Organic",
+      details: "Grown without synthetic inputs · Usage: Clean-label culinary, wellness products",
+    },
+  ],
+  applications: [
+    "Essential in Indian tempering (tadka), curries, and bread (paratha, mathri)",
+    "Used in pickles, snacks, and spice blends for strong aroma and taste",
+    "Adds warmth to lentils, soups, and baked products",
+    "Used in digestive tonics, antacids, and cold remedies",
+    "Extracted for thymol oil used in medicines and disinfectants",
+    "Used in natural antiseptic formulations and oral care products",
+  ],
+},
+
+{
+  name: "Chilli Seeds (Mirch ke Beej)",
+  image: chilliSeedsImg,
+  tagline: "Powerful. Pungent. Perfectly Indian.",
+  description:
+    "The heart of every fiery dish begins with a seed — Indian Chilli Seeds, the pure essence of heat and flavor. Known for their intense pungency, deep red pigment, and high capsaicin content, these seeds are prized globally not only as a source of spice but also as a key ingredient in oil extraction, spice cultivation, and natural flavor enhancement. At Nesbee Spices & Foods Pvt. Ltd., we export premium-quality chilli seeds sourced from India's leading chilli-growing belts — Andhra Pradesh, Telangana, Karnataka, and Madhya Pradesh. Each batch is meticulously cleaned, graded, and processed to preserve potency, color value, and oil content, ensuring top-tier quality for culinary and industrial applications. Our chilli seeds embody the true spirit of India — bold, fiery, and full of life.",
+  varieties: [
+    {
+      name: "Sannam (S4)",
+      details: "Mild heat, bright red · High ASTA color value · Usage: Color extraction, export",
+    },
+    {
+      name: "Teja",
+      details: "Heat: 40,000–50,000 SHU · High pungency · Usage: Chilli powder, oleoresin",
+    },
+    {
+      name: "Byadgi",
+      details: "Low heat, deep red hue · Wrinkled skin · Usage: Color-rich curries, paste",
+    },
+    {
+      name: "Guntur",
+      details: "High pungency, bold heat · Usage: Spice powders, masalas, oleoresin",
+    },
+    {
+      name: "Kashmiri",
+      details: "Mild heat, vivid red · Prized for color · Usage: Premium culinary blends",
+    },
+  ],
+  applications: [
+    "Used in spice powders, sauces, pickles, and seasoning mixes",
+    "Key ingredient in chili oil and oleoresin production",
+    "Used as high-quality planting seeds for commercial chili farming",
+    "Used in the production of natural pain-relief balms and creams",
+    "Extracted for capsaicin used in nutraceuticals and defense sprays",
+  ],
+},
+
   {
     name: "Nutmeg (Jaiphal)",
     image: nutmegImg,
@@ -306,9 +637,14 @@ export const spicesProducts = createProducts(spicesCategory.slug, categoryImage,
       "Traditionally used to aid digestion",
       "May support relaxation and sleep",
     ],
-    varieties: ["Whole Nutmeg", "Nutmeg Powder", "Nutmeg Oil"],
+    varieties: [
+      { name: "Whole Nutmeg", details: "Sun-dried, hand-sorted · Usage: Culinary, bakery" },
+      { name: "Nutmeg Powder", details: "Finely milled · Sweet-spicy aroma · Usage: Bakery, confectionery" },
+      { name: "Nutmeg Oil", details: "Steam-distilled essential oil · Usage: Ayurvedic formulations, aromatherapy" },
+    ],
     applications: ["Culinary Use", "Bakery & Confectionery", "Ayurvedic Formulations", "Extraction & Oleoresins"],
   },
+
   {
     name: "Mace (Javitri)",
     image: maceImg,
@@ -320,7 +656,10 @@ export const spicesProducts = createProducts(spicesCategory.slug, categoryImage,
       "Traditionally used to support digestion",
       "Rich in essential oils",
     ],
-    varieties: ["Whole Mace Blades", "Mace Powder"],
+    varieties: [
+      { name: "Whole Mace Blades", details: "Hand-picked, lace-like blades · Usage: Culinary, bakery" },
+      { name: "Mace Powder", details: "Finely ground · Delicate aroma · Usage: Ayurvedic formulations, extracts" },
+    ],
     applications: ["Culinary Use", "Bakery", "Ayurvedic Formulations", "Extraction & Oleoresins"],
   },
 ]);

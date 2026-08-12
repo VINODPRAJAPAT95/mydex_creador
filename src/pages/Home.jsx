@@ -17,19 +17,19 @@ import logisticsImage from "../assets/images/logistics.png";
 /* Local background image for the Global Trade section */
 import globalTradeBg from "../assets/images/global-trade.png";
 /* Local background image for the Get In Touch (CTA) section.
-   Put your real banner photo at this exact path/filename:
-   src/assets/images/get-in-touch.png */
+  Put your real banner photo at this exact path/filename:
+  src/assets/images/get-in-touch.png */
 import ctaBg from "../assets/images/get-in-touch.png";
 /* Local portrait image for the Why Choose Us section.
-   Put your real portrait photo at this exact path/filename:
-   src/assets/images/why-choose-us-portrait.png */
+  Put your real portrait photo at this exact path/filename:
+  src/assets/images/why-choose-us-portrait.png */
 import whyChooseUsPortrait from "../assets/images/why-choose-us-portrait.png";
 /* Local transparent PNG for the testimonials split section */
 import testimonialsArt from "../assets/images/testimonials-art.png";
 
 /* Local certification / authority logo PNGs for the auto-scrolling
-   certifications strip. Transparent PNGs work best since the cards
-   sit on a white background. */
+  certifications strip. Transparent PNGs work best since the cards
+  sit on a white background. */
 import fdaLogo from "../assets/images/certifications/fda.png";
 import fieoLogo from "../assets/images/certifications/fieo.png";
 import spicesBoardLogo from "../assets/images/certifications/spices-board.png";
@@ -39,8 +39,8 @@ import fssaiLogo from "../assets/images/certifications/fssai.png";
 import apedaLogo from "../assets/images/certifications/apeda.png";
 
 /* Entrance animation: parent staggers its children in one after another.
-   Each child type gets its own subtle motion so the reveal feels
-   deliberate — eyebrow first, then heading, then paragraph, then buttons. */
+  Each child type gets its own subtle motion so the reveal feels
+  deliberate — eyebrow first, then heading, then paragraph, then buttons. */
 const heroContainer = {
   hidden: {},
   show: {
@@ -76,14 +76,27 @@ const scaleIn = {
 };
 
 /* Kept as an alias so other sections below (About preview, etc.)
-   that already reference heroItem continue to work unchanged. */
+  that already reference heroItem continue to work unchanged. */
 const heroItem = fadeUp;
 
 /* Word-by-word scale-in reveal — mirrors an anime.js
-   "scale: [14,1], opacity: [0,1], easeOutCirc" stagger, rebuilt with
-   Framer Motion so it fits the rest of this file. Splits `text` on
-   spaces and animates each word in, staggered by `stagger` seconds,
-   starting after `delay` seconds. */
+  "scale: [14,1], opacity: [0,1], easeOutCirc" stagger, rebuilt with
+  Framer Motion so it fits the rest of this file. Splits `text` on
+  spaces and animates each word in, staggered by `stagger` seconds,
+  starting after `delay` seconds.
+
+  FIX (mobile navbar flash): the original initial scale of 14 forced
+  each word onto an oversized GPU compositing layer during entry.
+  On mobile GPUs that oversized layer could briefly paint past the
+  hero section's clip bounds, showing up as a white flash bleeding
+  into the navbar. Two changes fix this:
+    1. Initial scale reduced from 14 -> 3 (still a strong "pop", but
+       the backing store Framer/the browser allocates is far smaller).
+    2. The whole word span is now wrapped in its own
+       `overflow-hidden` + `contain: paint` container, so even if a
+       layer briefly renders larger than its box, it's hard-clipped
+       right there instead of relying solely on the parent hero
+       section's overflow-hidden. */
 const AnimatedWords = ({
   text,
   className = "",
@@ -93,12 +106,15 @@ const AnimatedWords = ({
 }) => {
   const words = text.split(" ");
   return (
-    <span className={className}>
+    <span
+      className={`inline-block overflow-hidden ${className}`}
+      style={{ contain: "paint" }}
+    >
       {words.map((word, i) => (
         <motion.span
           key={`${word}-${i}`}
           className={`inline-block will-change-transform ${wordClassName}`}
-          initial={{ scale: 14, opacity: 0 }}
+          initial={{ scale: 3, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
             duration: 0.8,
@@ -114,11 +130,11 @@ const AnimatedWords = ({
 };
 
 /* Animates each letter of a string flying in from a rotated/offset
-   position and settling into place — mirrors an anime.js
-   "translateY:['1.1em',0], translateX:['0.55em',0], rotateZ:[180,0],
-   easeOutExpo" letter reveal (the .ml7 effect). Spaces are kept as
-   plain characters (not wrapped) so word-wrapping still behaves
-   normally. */
+  position and settling into place — mirrors an anime.js
+  "translateY:['1.1em',0], translateX:['0.55em',0], rotateZ:[180,0],
+  easeOutExpo" letter reveal (the .ml7 effect). Spaces are kept as
+  plain characters (not wrapped) so word-wrapping still behaves
+  normally. */
 const AnimatedLetters = ({
   text,
   className = "",
@@ -158,8 +174,8 @@ const AnimatedLetters = ({
 };
 
 /* "What We Stand For" — stagger container + per-card rise-and-settle motion,
-   with a slight scale pop so the cards feel like they're "arriving" rather
-   than simply fading in. */
+  with a slight scale pop so the cards feel like they're "arriving" rather
+  than simply fading in. */
 const standForContainer = {
   hidden: {},
   show: {
@@ -242,9 +258,9 @@ const whatWeStandFor = [
 ];
 
 /* Why Choose Us — six reasons rendered as a 2-column icon grid next to a
-   portrait image. Icon boxes use the site's green/gold palette with an
-   offset gold frame behind each icon, echoing the accent-square motif
-   used elsewhere on the page. */
+  portrait image. Icon boxes use the site's green/gold palette with an
+  offset gold frame behind each icon, echoing the accent-square motif
+  used elsewhere on the page. */
 const whyChooseReasons = [
   {
     title: "70 Years in Dry Fruits & Spices",
@@ -354,9 +370,9 @@ const ourServices = [
 ];
 
 /* Blogs — colors and tilt angles for the rotated card sitting behind each
-   photo, cycled per card index. Green and terracotta stay on-brand; the
-   last card uses blue per request — kept a deeper shade so it still
-   reads clearly against the beige section background. */
+  photo, cycled per card index. Green and terracotta stay on-brand; the
+  last card uses blue per request — kept a deeper shade so it still
+  reads clearly against the beige section background. */
 const blogAccents = ["bg-mydex-green", "bg-[#A85C32]", "bg-[#2563EB]"];
 const blogTilts = ["-rotate-6", "rotate-6", "-rotate-4"];
 
@@ -377,7 +393,7 @@ const serviceStep = {
 };
 
 /* Certification / authority logos for the auto-scrolling strip. List is
-   duplicated once when rendered so the marquee loop is seamless. */
+  duplicated once when rendered so the marquee loop is seamless. */
 const certificationLogos = [
   { name: "FSSAI", src: fssaiLogo },
   { name: "ISO", src: isoLogo },
@@ -389,8 +405,8 @@ const certificationLogos = [
 ];
 
 /* Top 20 countries we trade with, for the auto-scrolling marquee strip
-   at the bottom of the Global Trade section. List duplicated once when
-   rendered so the loop is seamless. */
+  at the bottom of the Global Trade section. List duplicated once when
+  rendered so the loop is seamless. */
 const tradeCountries = [
   "UAE", "USA", "United Kingdom", "Germany", "Netherlands",
   "Saudi Arabia", "China", "Japan", "Singapore", "Australia",
@@ -399,7 +415,7 @@ const tradeCountries = [
 ];
 
 /* Small inline Google "G" mark, built from the four brand-color arcs —
-   used to badge each review card as a Google-style review. */
+  used to badge each review card as a Google-style review. */
 const GoogleMark = ({ className = "h-5 w-5" }) => (
   <svg viewBox="0 0 48 48" className={className}>
     <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.5 29.6 4.5 24 4.5 12.7 4.5 3.5 13.7 3.5 25S12.7 45.5 24 45.5 44.5 36.3 44.5 25c0-1.6-.2-3.1-.9-4.5z" />
@@ -421,18 +437,18 @@ const StarRow = () => (
 );
 
 /* Subtle repeating watermark used on plain-color sections. Sits at z-0
-   behind a section's content, which should be wrapped in a
-   `relative z-10` container.
+  behind a section's content, which should be wrapped in a
+  `relative z-10` container.
 
-   motif="flower" (default) — a simple 6-petal flower.
-     tone="gold"  (default) suits the cream/beige sections.
-     tone="light" uses a pale cream stroke so it stays visible — but
-       still subtle — on dark green panels.
+  motif="flower" (default) — a simple 6-petal flower.
+    tone="gold"  (default) suits the cream/beige sections.
+    tone="light" uses a pale cream stroke so it stays visible — but
+      still subtle — on dark green panels.
 
-   motif="kaju" — a cashew (kaju) nut paired with a small flower, for a
-   dry-fruits-themed accent.
-     tone="black" (default for this motif) gives a soft charcoal imprint
-       on the cream sections. */
+  motif="kaju" — a cashew (kaju) nut paired with a small flower, for a
+  dry-fruits-themed accent.
+    tone="black" (default for this motif) gives a soft charcoal imprint
+    on the cream sections. */
 const FlowerWatermark = ({ tone, motif = "flower", className = "" }) => {
   if (motif === "kaju") {
     const resolvedTone = tone || "black";
@@ -468,21 +484,21 @@ const FlowerWatermark = ({ tone, motif = "flower", className = "" }) => {
 };
 
 /* Testimonials list enriched with initials for the avatar circle —
-   sourced from siteData, ratings default to 5 stars. */
+  sourced from siteData, ratings default to 5 stars. */
 const reviewCards = testimonials.map((t) => ({
   ...t,
   initial: t.name.trim().charAt(0).toUpperCase(),
 }));
 
 /* Builds a "slide in, pause, slide in, pause..." keyframe sequence for a
-   horizontal auto-scrolling track. The track holds the review list
-   duplicated once (for a seamless loop), and this function returns the
-   x keyframes + times + total duration needed to step through the
-   ORIGINAL list one card at a time, holding on each card for `hold`
-   seconds and taking `move` seconds to slide to the next one. Because
-   the track's second half is an exact duplicate of the first, stopping
-   at -50% looks identical to 0%, so the loop restarts with no visible
-   jump. */
+  horizontal auto-scrolling track. The track holds the review list
+  duplicated once (for a seamless loop), and this function returns the
+  x keyframes + times + total duration needed to step through the
+  ORIGINAL list one card at a time, holding on each card for `hold`
+  seconds and taking `move` seconds to slide to the next one. Because
+  the track's second half is an exact duplicate of the first, stopping
+  at -50% looks identical to 0%, so the loop restarts with no visible
+  jump. */
 const buildStepScroll = (cardCount, hold = 1.6, move = 0.7) => {
   const stepPercent = 50 / cardCount; // total shift to reveal the full list once = -50%
   const x = [];
@@ -530,12 +546,18 @@ const Home = () => {
             Premium Quality. Global Reach.
           </motion.p>
 
-          <h1 className="font-serif text-4xl font-semibold leading-tight text-white md:text-6xl">
-            <AnimatedWords
-              text="Global Importer & Exporter of Dry Fruits & Spices"
-              delay={0.6}
-            />
-          </h1>
+          {/* FIX: wrapped in its own overflow-hidden + contain:paint box so
+              the scaled word-spans inside AnimatedWords can never paint
+              outside this boundary — this is what stops the white flash
+              from bleeding up into the navbar on mobile. */}
+          <div className="overflow-hidden" style={{ contain: "paint" }}>
+            <h1 className="font-serif text-4xl font-semibold leading-tight text-white md:text-6xl">
+              <AnimatedWords
+                text="Global Importer & Exporter of Dry Fruits & Spices"
+                delay={0.6}
+              />
+            </h1>
+          </div>
 
           <motion.p variants={fadeUp} className="mt-5 max-w-xl text-white/85">
             Mydex International delivers export-grade agro commodities with Fortune-500 level
