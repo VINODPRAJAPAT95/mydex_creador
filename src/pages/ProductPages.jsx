@@ -181,7 +181,7 @@ export const CategoryPage = () => {
           <p className="text-xs font-semibold uppercase tracking-widest text-mydex-gold mb-6">
             {products.length} Products
           </p>
-          <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {products.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -334,7 +334,7 @@ export const ProductDetail = () => {
         {related.length > 0 && (
           <div className="container-lux relative z-10 mt-16">
             <h3 className="mb-6 font-serif text-3xl text-mydex-green">Related Products</h3>
-            <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {related.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}

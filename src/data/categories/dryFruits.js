@@ -10,7 +10,7 @@ import raisinImg    from "../../assets/images/dry-fruits/raisin.png";
 import figImg       from "../../assets/images/dry-fruits/fig.png";
 import datesImg     from "../../assets/images/dry-fruits/dates.png";
 import apricotImg   from "../../assets/images/dry-fruits/apricot.png";
-import hazelnutImg  from "../../assets/images/dry-fruits/hazelnut.png";
+import dryDatesImg  from "../../assets/images/dry-fruits/hazelnut.png";
 
 
 const slug = "dry-fruits";
@@ -83,120 +83,302 @@ varieties: [
     }
   ]
 },
-  {
-    name: "Cashew (Kaju)",
-    image: cashewImg,
-    tagline: "Creamy. Rich. Globally Trusted.",
-    description: "Our export-grade cashews are hand-selected and processed at our Unjha facility. Available in W180, W210, W240, W320 and W450 grades, packed under vacuum or in nitrogen-flushed tins to preserve freshness across long international shipments.",
-    healthBenefits: ["High in healthy monounsaturated fats", "Rich in magnesium and zinc", "Supports heart health", "Boosts immunity"],
-    varieties: [
-      { name: "W180", details: "Count: ~180 kernels/lb · Largest, whitest grade · Usage: Premium retail, gifting" },
-      { name: "W210", details: "Count: ~210 kernels/lb · Large uniform kernel · Usage: Export retail packs" },
-      { name: "W240", details: "Count: ~240 kernels/lb · Most popular grade · Usage: Everyday snacking, retail" },
-      { name: "W320", details: "Count: ~320 kernels/lb · Medium kernel size · Usage: Bulk trade, confectionery" },
-      { name: "W450", details: "Count: ~450 kernels/lb · Smaller uniform kernel · Usage: Food processing, cooking" },
-      { name: "Cashew Splits", details: "Broken kernel halves · Cost-effective · Usage: Bakery, namkeen, chutneys" },
-    ],
-    applications: ["Snack Industry", "Confectionery", "Retail Packing", "Food Processing"],
-  },
- {
+{
+  name: "Cashew (Kaju)",
+  image: cashewImg,
+  tagline: "Creamy Taste, Premium Nutrition",
+
+  description:
+    "Cashew nuts are prized worldwide for their creamy taste, soft crunch, and versatility. From gourmet cooking to snack foods, cashews are a staple in premium food categories. Nesbee exports high-quality cashew kernels, processed under hygienic conditions to preserve taste, color, and shelf life.",
+
+  varieties: [
+    {
+      name: "Whole Cashews",
+  
+      details:
+        "Premium whole cashew kernels with a creamy texture and uniform appearance · Usage: Premium snacking, gifting & retail packs",
+    },
+    {
+      name: "Cashew Splits",
+      details:
+        "Carefully processed broken cashew kernel pieces · Usage: Bakery, sweets, namkeen, cooking & food processing",
+    },
+    {
+      name: "Cashew Paste",
+      details:
+        "Smooth, creamy cashew paste made from quality kernels · Usage: Sauces, spreads, gravies, vegan cheese & dairy-free creams",
+    },
+  ],
+
+  applications: [
+    "Snacks & Roasted Nuts: Consumed raw, roasted, or flavored as a premium snack",
+    "Snacks & Roasted Nuts: Widely used in salted, spiced, and honey-roasted nut mixes",
+    "Sweets, Curries & Gravies: Essential ingredient in Indian sweets like kaju katli and halwa",
+    "Vegan Cheese & Nut Pastes: Processed into smooth cashew paste for sauces and spreads",
+    "Vegan Cheese & Nut Pastes: Key base ingredient for vegan cheese and dairy-free creams",
+  ],
+},
+{
   name: "Makhana (Regular/Flavoured)",
   image: pistachioImg,
-  tagline: "Naturally Green. Naturally Premium.",
-  description: "Premium pistachios graded by size and shell integrity. Mydex pistachios are processed hygienically, moisture-tested and packed to retain their natural crunch and flavour. Available as in-shell, open-shell or kernel, suitable for retail, bakery and confectionery buyers worldwide.",
-  healthBenefits: ["Rich in antioxidants", "Supports weight management", "Good source of protein and fiber", "Promotes gut health"],
+  tagline: "Light. Crunchy. Naturally Nutritious.",
+
+  description:
+    "Makhana, also known as Fox Nuts or Lotus Seeds, is a naturally light and nutritious snack valued for its crunchy texture and wholesome nutritional profile. Rich in plant-based protein, fiber, and essential minerals, makhana is widely enjoyed as a healthy everyday snack. Nesbee offers premium-quality makhana, carefully cleaned, graded, and processed to retain its natural crunch, freshness, and quality for global markets.",
+
   varieties: [
-    { name: "In-Shell Pistachio", details: "Naturally split shell · Roasted & salted option · Usage: Direct snacking, gifting" },
-    { name: "Open Shell Pistachio", details: "Wide-open shell · Easy to crack · Usage: Premium retail packs" },
-    { name: "Pistachio Kernel", details: "Shelled, bright green kernel · Usage: Bakery, ice cream, confectionery" },
-    { name: "Roasted Pistachio", details: "Dry roasted, seasoned option · Usage: Ready-to-eat snacks" },
+    {
+      name: "Regular Makhana",
+      details:
+        "Clean, premium-quality fox nuts with a light and crunchy texture · Usage: Direct snacking, roasting & traditional recipes",
+    },
+    {
+      name: "Roasted Makhana",
+      details:
+        "Lightly roasted fox nuts with enhanced crunch and natural flavor · Usage: Healthy snacks, retail packs & ready-to-eat products",
+    },
+    {
+      name: "Flavoured Makhana",
+      details:
+        "Crunchy makhana infused with carefully selected seasonings · Usage: Premium snacks, retail & modern health foods",
+    },
   ],
-  applications: ["Confectionery", "Bakery", "Retail Snacks", "Ice Cream Industry"],
+
+  applications: [
+    "Healthy Snacking: Enjoyed as a light and nutritious everyday snack",
+    "Retail & Ready-to-Eat Foods: Packed as convenient healthy snack options",
+    "Breakfast & Wellness Foods: Added to nutritious snack mixes and health-focused diets",
+    "Food & Confectionery: Used in traditional recipes, desserts, and innovative food products",
+    "Flavoured Snack Products: Used to create premium roasted and seasoned snack varieties",
+  ],
+},
+ {
+  name: "Walnut (Akhrot)",
+  image: walnutImg,
+  tagline: "The Brain Food of Nature",
+
+  description:
+    "Walnuts are globally known as “brain food”, thanks to their shape and rich omega-3 fatty acid content. They play a vital role in heart health, cognitive function, and overall wellness. Nesbee supplies export-quality walnuts, carefully graded and packed to retain freshness, crunch, and nutritional value.",
+
+  varieties: [
+    {
+      name: "Whole Walnut",
+     
+      details:
+        "Premium whole walnuts with natural shell and rich kernel · Usage: Retail, daily consumption & festive gifting",
+    },
+    {
+      name: "Walnut Halves",
+     
+      details:
+        "Carefully graded walnut kernel halves with a crisp texture · Usage: Bakery, salads, snacking & desserts",
+    },
+    {
+      name: "Walnut Powder",
+   
+      details:
+        "Finely ground premium walnut kernel · Usage: Health foods, nutrition blends, bakery mixes & smoothies",
+    },
+  ],
+
+  applications: [
+    "Daily Nutrition & Gifting: Consumed as a wholesome daily dry fruit",
+    "Daily Nutrition & Gifting: Popular in premium dry fruit assortments and gift packs",
+    "Bakery & Confectionery: Used in cakes, brownies, cookies, and pastries",
+    "Health Supplements & Granola: Added to granola, trail mixes, and energy bars",
+    "Health Supplements & Granola: Used in health foods and nutrition blends",
+  ],
+},
+ {
+  name: "Raisin (Kishmish)",
+  tagline: "Naturally Sweet Energy Bites",
+
+  description:
+    "Raisins, or Kishmish, are dried grapes packed with natural sugars, iron, and antioxidants. Loved for their sweetness and versatility, raisins are a staple in both health foods and traditional recipes. Nesbee offers carefully dried, residue-free raisins, ensuring rich flavor, soft texture, and global export compliance.",
+
+  varieties: [
+    {
+      name: "Golden Raisins",
+      details:
+        "Golden-colored raisins with a naturally sweet flavor · Usage: Bakery, confectionery, festive sweets",
+    },
+    {
+      name: "Black Raisins",
+      details:
+        "Deep-colored raisins with rich natural flavor · Usage: Traditional recipes, health snacks & wellness foods",
+    },
+    {
+      name: "Green Raisins",
+      details:
+        "Naturally dried raisins with a distinctive tangy-sweet taste · Usage: Retail packs, cooking & desserts",
+    },
+  ],
+
+  applications: [
+    "Bakery & Confectionery: Widely used in cakes, cookies, muffins, and pastries",
+    "Bakery & Confectionery: Adds natural sweetness, texture, and visual appeal",
+    "Breakfast Cereals & Snacks: Used in cereals, granola, muesli, and trail mixes",
+    "Traditional Sweets & Desserts: Commonly used in Indian sweets and festive preparations",
+    "Traditional Sweets & Desserts: Enhances flavor in desserts, puddings, and halwa",
+  ],
+},
+ {
+  name: "Dry Fig (Anjeer)",
+  image: figImg,
+  tagline: "The Ancient Fruit of Natural Sweetness",
+
+  description:
+    "Dry Fig, popularly known as Anjeer, is one of the oldest cultivated fruits in the world, valued for its natural sweetness, digestive benefits, and rich mineral content. Traditionally used in Ayurveda and modern nutrition alike, figs are a powerhouse of fiber and energy. Nesbee offers premium-grade dry figs, carefully dried and processed to retain their soft texture, rich flavor, and nutritional integrity — ideal for health foods and gourmet applications.",
+
+  varieties: [
+    {
+      name: "Dried Fig",
+
+      details:
+        "Soft-dried figs with natural sweetness and rich flavor · Usage: Direct snacking, gifting, sweets & desserts",
+    },
+    {
+      name: "Fig Powder",
+    
+      details:
+        "Finely ground dried fig with concentrated natural sweetness · Usage: Health foods, smoothies, bakery & nutritional products",
+    },
+    {
+      name: "Organic Dry Fig",
+    
+      details:
+        "Certified organic dry figs with no unnecessary additives · Usage: Clean-label foods, wellness products & premium applications",
+    },
+  ],
+
+  applications: [
+    "Food & Beverage Applications: Used in traditional sweets, desserts, and bakery products",
+    "Food & Beverage Applications: Added to breakfast cereals, granola, and energy bars",
+    "Wellness & Nutritional Uses: Popular ingredient in fiber-rich and digestive health foods",
+    "Ayurvedic & Traditional Uses: Used in Ayurvedic formulations for digestion and vitality",
+    "Ayurvedic & Traditional Uses: Consumed as a natural remedy for overall wellness support",
+  ],
+},
+
+  {
+  name: "Dates (Khajoor)",
+  image: datesImg,
+  tagline: "Naturally Sweet. Naturally Energising.",
+
+  description:
+    "Dates, or Khajoor, are naturally sweet fruits valued for their rich flavor, soft texture, and natural energy. Naturally rich in dietary fiber and essential minerals, dates are widely enjoyed as a wholesome snack and used across traditional foods, desserts, bakery products, and health-focused applications. Nesbee offers premium-quality dates, carefully selected, graded, and packed to preserve their natural sweetness, freshness, and nutritional value.",
+
+  varieties: [
+    {
+      name: "Medjool Dates",
+     
+      details:
+        "Large, soft dates with a rich caramel-like sweetness · Usage: Premium retail, gifting & healthy snacking",
+    },
+    {
+      name: "Deglet Noor",
+     
+      details:
+        "Firm-textured dates with a delicate honey-like sweetness · Usage: Bakery, confectionery & retail packing",
+    },
+    {
+      name: "Pitted Dates",
+      
+      details:
+        "Convenient seedless dates, ready for direct consumption and processing · Usage: Snacking, bakery & food processing",
+    },
+    {
+      name: "Date Paste",
+   
+      details:
+        "Smooth, naturally sweet date paste made from quality dates · Usage: Natural sweetener, bakery, energy bars & food products",
+    },
+    {
+      name: "Date Syrup",
+     
+      details:
+        "Rich and concentrated natural date syrup · Usage: Beverages, desserts, sauces & natural sweetening applications",
+    },
+  ],
+
+  applications: [
+    "Retail & Healthy Snacking: Consumed as a naturally sweet and energy-rich snack",
+    "Bakery & Confectionery: Used in cakes, cookies, desserts, energy bars, and traditional sweets",
+    "Breakfast & Wellness Foods: Added to cereals, granola, smoothies, and nutritious food blends",
+    "Natural Sweeteners: Date paste and syrup are used as alternatives to refined sugar",
+    "Food Processing: Used in beverages, spreads, sauces, fillings, and other processed food products",
+  ],
+},{
+  name: "Dry Apricot (Khubani)",
+  image: apricotImg,
+  tagline: "Naturally Sweet. Naturally Nutritious.",
+
+  description:
+    "Dry Apricots, popularly known as Khubani, are naturally sweet and nutrient-rich fruits valued for their soft texture, tangy flavor, and versatility. Rich in dietary fiber and naturally occurring antioxidants, dried apricots are widely used in healthy snacks, bakery products, confectionery, and traditional foods. Nesbee offers premium-quality dry apricots, carefully selected, graded, and processed to preserve their natural flavor, color, and nutritional value.",
+
+  varieties: [
+    {
+      name: "Whole Dried Apricot",
+   
+      details:
+        "Naturally dried whole apricots with a soft texture and tangy-sweet flavor · Usage: Direct snacking, gifting & retail packs",
+    },
+    {
+      name: "Apricot Halves",
+    
+      details:
+        "Carefully pitted and halved dried apricots · Usage: Bakery, muesli, cereals, desserts & retail packing",
+    },
+    {
+      name: "Diced Apricot",
+    
+      details:
+        "Uniformly cut dried apricot pieces for convenient food preparation · Usage: Confectionery, cereal bars, bakery & snack mixes",
+    },
+  ],
+
+  applications: [
+    "Bakery & Confectionery: Used in cakes, cookies, pastries, desserts, and sweet preparations",
+    "Breakfast & Healthy Foods: Added to muesli, cereals, granola, trail mixes, and energy bars",
+    "Snacking & Retail: Consumed directly as a naturally sweet and nutritious snack",
+    "Traditional Foods: Used in desserts, fruit mixes, and various culinary preparations",
+    "Nutritional Products: Suitable for health-focused foods and clean-label product formulations",
+  ],
 },
   {
-    name: "Walnut (Akhrot)",
-    image: walnutImg,
-    tagline: "Brain Food. Heart Food. Pure Food.",
-    description: "Sourced from high-altitude Indian growing regions, our walnuts are graded for kernel colour, oil content and size. Available as in-shell or shelled halves and pieces, Mydex walnuts are packed under controlled conditions to maintain their natural oil content and freshness.",
-    healthBenefits: ["Excellent source of omega-3 fatty acids", "Supports brain health", "Rich in antioxidants", "Promotes heart health"],
-    varieties: [
-      { name: "In-Shell Walnut", details: "Light-colored shell · Easy crack · Usage: Retail, festive gifting" },
-      { name: "Walnut Halves", details: "Light amber kernel halves · Usage: Bakery, salads, snacking" },
-      { name: "Walnut Pieces", details: "Broken kernel pieces · Cost-effective · Usage: Confectionery, granola" },
-      { name: "Walnut Powder", details: "Finely ground kernel · Usage: Health foods, bakery mixes" },
-    ],
-    applications: ["Bakery & Confectionery", "Health Foods", "Retail Packing", "Dairy Industry"],
-  },
-  {
-    name: "Raisin (Kishmish)",
-    image: raisinImg,
-    tagline: "Naturally Sweet. Naturally Pure.",
-    description: "Sundried and mechanically cleaned, Mydex raisins are free from additives and artificial colour. Graded by size and moisture level, they are ideal for confectionery, bakery, direct retail packing and health food applications. Available in Golden, Green and Black varieties.",
-    healthBenefits: ["Natural source of energy", "Rich in iron and potassium", "Supports digestive health", "Good source of antioxidants"],
-    varieties: [
-      { name: "Golden Raisin", details: "Sulphur-treated, golden color · Usage: Bakery, festive sweets" },
-      { name: "Green Raisin", details: "Naturally dried, tangy-sweet · Usage: Retail packs, cooking" },
-      { name: "Black Raisin", details: "Sun-dried, deep flavor · Usage: Ayurvedic use, health snacking" },
-      { name: "Sultana", details: "Seedless, light amber · Usage: Cereals, confectionery, baking" },
-    ],
-    applications: ["Bakery & Confectionery", "Breakfast Cereals", "Retail Packing", "Health Foods"],
-  },
-  {
-    name: "Dry Fig (Anjeer)",
-    image: figImg,
-    tagline: "Soft. Nutrient-Rich. Naturally Energising.",
-    description: "Dry Fig, popularly known as Anjeer, is one of the oldest cultivated fruits in the world, valued for its natural sweetness, digestive benefits, and rich mineral content. Traditionally used in Ayurveda and modern nutrition alike, figs are a powerhouse of fiber and energy. Mydex offers premium-grade dry figs, carefully dried and processed to retain their soft texture, rich flavor, and nutritional integrity.",
-    healthBenefits: ["Supports digestion", "Rich in dietary fiber", "Boosts energy naturally", "Supports heart health"],
-    varieties: [
-      { name: "Dried Fig", details: "Soft-dried, natural sweetness · Usage: Direct snacking, gifting" },
-      { name: "Fig Powder", details: "Finely ground dried fig · Usage: Health foods, smoothies" },
-      { name: "Organic Dry Fig", details: "Certified organic, no additives · Usage: Clean-label products" },
-    ],
-    applications: ["Food & Beverage", "Sweets & Desserts", "Breakfast Cereals", "Ayurvedic Formulations"],
-  },
-  {
-    name: "Dates (Khajoor)",
-    image: datesImg,
-    tagline: "Sweet. Natural. Energy Packed.",
-    description: "Premium Medjool and Deglet Noor dates, sourced and repacked at our Unjha facility. Available pitted, unpitted or in blocks, with custom packaging options for retail, foodservice and industrial buyers. All batches are moisture-tested and quality-certified before shipment.",
-    healthBenefits: ["Natural source of energy", "Rich in potassium and magnesium", "Supports bone health", "Good source of dietary fiber"],
-    varieties: [
-      { name: "Medjool Dates", details: "Large, soft & caramel-sweet · Usage: Premium retail, gifting" },
-      { name: "Deglet Noor", details: "Firm texture, honey-colored · Usage: Bakery, retail packing" },
-      { name: "Pitted Dates", details: "Seed removed, ready-to-eat · Usage: Snacking, food processing" },
-      { name: "Date Paste", details: "Smooth blended paste · Usage: Natural sweetener, bakery" },
-      { name: "Date Syrup", details: "Concentrated liquid syrup · Usage: Beverages, natural sugar substitute" },
-    ],
-    applications: ["Retail Packing", "Confectionery", "Health Foods", "Food Processing"],
-  },
-  {
-    name: "Dry Apricot (Khubani)",
-    image: apricotImg,
-    tagline: "Sun-Dried. Naturally Sweet. Export Grade.",
-    description: "Sun-dried apricots graded for colour, size and moisture. Mydex apricots are processed without sulphur dioxide on request, making them suitable for organic and clean-label product lines. Available as whole, halved or diced for multiple food industry applications.",
-    healthBenefits: ["Rich in vitamin A and C", "Good source of dietary fiber", "Supports eye health", "Natural antioxidant properties"],
-    varieties: [
-      { name: "Whole Dried Apricot", details: "Sun-dried, tangy-sweet · Usage: Direct snacking, gifting" },
-      { name: "Apricot Halves", details: "Pitted & halved · Usage: Bakery, muesli, retail packs" },
-      { name: "Diced Apricot", details: "Small cut pieces · Usage: Confectionery, cereal bars" },
-      { name: "Organic Apricot", details: "No sulphur, certified organic · Usage: Clean-label, nutraceuticals" },
-    ],
-    applications: ["Bakery & Confectionery", "Health Foods", "Retail Packing", "Nutraceuticals"],
-  },
-  {
-    name: "Dry Dates (Chuhara)",
-    image: hazelnutImg,
-    tagline: "Rich. Buttery. Premium Export Grade.",
-    description: "Export-grade hazelnuts sourced from quality-certified origins, graded by size and shell-out ratio. Available as in-shell, blanched or roasted, with vacuum or MAP packaging to protect flavour integrity across extended shelf life. Suitable for chocolate, bakery and snack manufacturers.",
-    healthBenefits: ["Rich in vitamin E", "Good source of healthy fats", "Supports heart health", "Rich in antioxidants"],
-    varieties: [
-      { name: "In-Shell Hazelnut", details: "Natural shell, high shell-out ratio · Usage: Bulk trade, retail" },
-      { name: "Blanched Hazelnut", details: "Skin removed, uniform kernel · Usage: Chocolate, bakery" },
-      { name: "Roasted Hazelnut", details: "Dry roasted, rich aroma · Usage: Snacking, confectionery" },
-      { name: "Hazelnut Paste", details: "Smooth ground paste · Usage: Spreads, chocolate manufacturing" },
-    ],
-    applications: ["Chocolate Industry", "Bakery", "Retail Snacks", "Confectionery"],
-  },
+  name: "Dry Dates (Chuhara)",
+  image: dryDatesImg,
+  tagline: "Naturally Sweet. Naturally Energising.",
+
+  description:
+    "Dry Dates, commonly known as Chuhara, are naturally dehydrated dates valued for their firm texture, concentrated sweetness, and long shelf life. Rich in natural carbohydrates, dietary fiber, and essential minerals, dry dates are widely used in traditional foods, snacks, sweets, and nutritional preparations. Nesbee offers premium-quality dry dates, carefully selected, cleaned, graded, and packed to preserve their natural taste, freshness, and quality.",
+
+  varieties: [
+    {
+      name: "Whole Dry Dates",
+      details:
+        "Naturally dried whole dates with a firm texture and concentrated sweetness · Usage: Direct snacking, gifting & traditional preparations",
+    },
+    {
+      name: "Pitted Dry Dates",
+      details:
+        "Seed-removed dry dates for convenient consumption and processing · Usage: Snacking, sweets, bakery & food processing",
+    },
+    {
+      name: "Dry Date Pieces",
+      details:
+        "Uniformly cut pieces of dried dates with natural sweetness · Usage: Sweets, desserts, cereals & snack mixes",
+    },
+  ],
+
+  applications: [
+    "Traditional Sweets & Desserts: Used in Indian sweets, halwa, laddoos, and festive preparations",
+    "Healthy Snacking: Consumed as a naturally sweet and energy-rich snack",
+    "Bakery & Confectionery: Added to cakes, cookies, energy bars, and other baked products",
+    "Breakfast & Nutrition Foods: Used in cereals, granola, trail mixes, and nutritional blends",
+    "Food Processing: Used in date-based fillings, desserts, snack products, and natural sweet preparations",
+  ],
+},
 
 ]);
 

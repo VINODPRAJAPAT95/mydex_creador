@@ -3,7 +3,7 @@ export const company = {
   tagline: "Premium Quality. Global Reach.",
   phone: "+91 7013351268",
   email: "info@mydexinternational.com",
-  address: "Unjha, Gujarat, India",
+  address: "12-6-513, Begum Bazar, Hyderabad, Telangana- 500012, India",
   hours: "Mon – Sat: 9:00 AM – 6:00 PM IST",
   whatsapp: "917013351268",
 };
@@ -149,7 +149,7 @@ export const galleryItems = [
   {
     title: "Cashew Nuts",
     type: "Dry Fruits",
-    image: "https://nutribinge.in/cdn/shop/articles/seeds_dry_fruits_nuts.webp?v=1713264895",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-ld0HNJ5WeIforG8Uz6dVpf1yZSYtZdkHxTF9cRW_UgvfQ52sqJzZ-Oy&s=10",
   },
   {
     title: "Dry Fruits Pack",

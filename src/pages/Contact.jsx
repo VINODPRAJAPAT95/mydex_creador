@@ -8,6 +8,7 @@ import {
   ChevronDown,
   Handshake,
   Clock,
+  MessageCircle,
 } from "lucide-react";
 import { company } from "../data/siteData";
 
@@ -65,22 +66,39 @@ const Contact = () => {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section className="relative isolate overflow-hidden">
-        {/* HD background image — local import instead of a flat color */}
+      {/* 🔧 POLISH: taller, more premium hero — richer gradient (3-stop
+          instead of 4-stop flat fade), a subtle dark vignette at the very
+          top/bottom so the image reads sharper and more "HD", and a soft
+          gold glow behind the heading for extra depth. Image itself is
+          unchanged (still `heroBg`) — this is purely about how it's
+          presented. */}
+      <section className="relative isolate overflow-hidden min-h-[560px] sm:min-h-[620px] md:min-h-[680px] flex items-center">
         <img
           src={heroBg}
           alt="Mydex International contact and global trade"
-          className="absolute inset-0 -z-20 h-full w-full object-cover"
+          className="absolute inset-0 -z-30 h-full w-full object-cover"
         />
-        {/* Gradient overlay so text and form stay readable over the image */}
+        {/* Directional gradient so text/form stay readable over the image */}
+        <div
+          className="absolute inset-0 -z-20"
+          style={{
+            background: `linear-gradient(100deg, ${CREAM} 0%, ${CREAM}F0 30%, ${CREAM}A6 55%, ${CREAM}33 80%, transparent 100%)`,
+          }}
+        />
+        {/* Subtle top/bottom vignette for a crisper, more "HD" edge */}
         <div
           className="absolute inset-0 -z-10"
           style={{
-            background: `linear-gradient(90deg, ${CREAM} 0%, ${CREAM}E6 35%, ${CREAM}99 65%, ${CREAM}40 100%)`,
+            background: `linear-gradient(180deg, rgba(18,59,41,0.18) 0%, transparent 18%, transparent 82%, rgba(18,59,41,0.22) 100%)`,
           }}
         />
+        {/* Soft gold glow anchoring the heading */}
+        <div
+          className="pointer-events-none absolute -left-24 top-1/2 -z-10 h-[420px] w-[420px] -translate-y-1/2 rounded-full blur-3xl"
+          style={{ backgroundColor: `${GOLD}22` }}
+        />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:py-16 md:grid-cols-2 md:px-8 md:py-20">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-14 sm:py-16 md:grid-cols-2 md:px-8 md:py-20">
           <motion.div initial="hidden" animate="show" variants={fadeUp}>
             <p
               className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.25em]"
@@ -89,7 +107,7 @@ const Contact = () => {
               Contact Us
             </p>
             <h1
-              className="font-serif text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
+              className="font-serif text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl lg:text-6xl"
               style={{ color: GREEN }}
             >
               Let&rsquo;s Build a Strong
@@ -241,10 +259,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
-            className="overflow-hidden rounded-2xl text-white"
+            className="flex flex-col overflow-hidden rounded-2xl text-white"
             style={{ backgroundColor: GREEN }}
           >
-            <div className="p-6 sm:p-8">
+            <div className="flex-1 p-6 sm:p-8">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: GOLD }}>
                 Our Office
               </p>
@@ -280,27 +298,25 @@ const Contact = () => {
               </div>
             </div>
 
-            <div
-              className="relative flex h-32 items-center justify-center overflow-hidden sm:h-36"
-              style={{ backgroundColor: GREEN_2 }}
+            {/* 🔧 REPLACED: pehle yahan ek dotted-pattern box tha jisme sirf
+                ek gold circle ke andar "M" letter tha — visually adhura/
+                out-of-place lag raha tha. Ab uski jagah ek proper, useful
+                closing strip hai: seedha WhatsApp par message karne ka
+                quick-contact button, jo card ko bhi complete finish deta
+                hai aur functionally useful bhi hai. */}
+            <a
+              href={`https://wa.me/${(company?.phone ?? "919876543210").replace(/[^\d]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-3 px-6 py-4 text-sm font-semibold transition sm:px-8"
+              style={{ backgroundColor: GREEN_2, color: GOLD }}
             >
-              <svg viewBox="0 0 400 140" className="absolute inset-0 h-full w-full opacity-30">
-                {Array.from({ length: 140 }).map((_, i) => {
-                  const cols = 20;
-                  const x = (i % cols) * 20 + 10;
-                  const y = Math.floor(i / cols) * 20 + 10;
-                  const seed = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
-                  const show = seed - Math.floor(seed) > 0.6;
-                  return show ? <circle key={i} cx={x} cy={y} r="1.4" fill={GOLD} /> : null;
-                })}
-              </svg>
-              <span
-                className="relative flex h-14 w-14 items-center justify-center rounded-full border font-serif text-xl font-bold sm:h-16 sm:w-16 sm:text-2xl"
-                style={{ borderColor: GOLD, color: GOLD }}
-              >
-                M
+              <span className="inline-flex items-center gap-2">
+                <MessageCircle size={16} />
+                Chat with us on WhatsApp
               </span>
-            </div>
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </a>
           </motion.div>
         </div>
       </section>

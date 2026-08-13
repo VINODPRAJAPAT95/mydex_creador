@@ -52,11 +52,20 @@ const FlowerWatermark = ({ tone, motif = "flower", className = "" }) => {
 
 /* ─── Blog List ─────────────────────────────────────────── */
 export const BlogList = () => {
+  // 🔧 FIX: PageHero pehle bina `image` prop ke call ho raha tha (BlogDetail
+  // niche sahi se `image={post.image}` pass karta hai, par BlogList nahi
+  // kar raha tha) — isliye hero section me background image nahi dikh
+  // rahi thi. Koi naya asset import nahi kiya (galat filename se build
+  // tut sakta tha) — iske bajaye already existing `blogs` data se pehli
+  // post ki image use kar rahe hain, jo hamesha safe hai.
+  const heroImage = blogs?.[0]?.image;
+
   return (
     <>
       <PageHero
         title="Insights & Blog"
         subtitle="Market trends, quality guidance and trade knowledge."
+        image={heroImage}
       />
 
       <section className="section-pad relative overflow-hidden bg-mydex-beige">

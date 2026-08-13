@@ -349,7 +349,7 @@ export const herbsProducts = createProducts(herbsCategory.slug, categoryImage, [
   },
 
   {
-    name: "Basil Seeds (Sabja / Tukmaria)",
+    name: "Basil Seeds (Sabja,Tukmaria)",
     image: basilSeedsImg,
     tagline: "The Wellness Seed Taking the World by Storm",
     description:

@@ -126,159 +126,24 @@ const AboutHero = ({ eyebrow, title, subtitle, image }) => (
   </section>
 );
 
-/* ─── WHO WE ARE — FLIP CARD ────────────────────────────────────────────────
-   Rebuilt from a pasted vanilla-CSS "book flip" card: the image panel sits
-   on top, and on hover it rotates away on its left edge (rotateY -135deg)
-   to reveal a details panel underneath, with the whole card also tilting
-   slightly (rotate -10deg) for a dramatic "opening" feel.
+/* ─── WHO WE ARE — FRAMED IMAGE ──────────────────────────────────────────────
+   🔧 REPLACED: Purana "book flip" 3D hover card (WhoWeAreFlipCard) yahan se
+   hata diya gaya hai — woh complex tha (preserve-3d, rotateY(-135deg) hover
+   flip, multiple keyframe animations) aur maintain karna mushkil tha.
 
-   Notes on the port:
-   - All class names are prefixed `wwa-` (Who We Are) and scoped inside
-     this component's own <style> block, so nothing here touches the
-     global `body` or any other `.card` / `.container` used elsewhere on
-     the site — the original snippet styled `body` and `.container`
-     directly, which would have leaked into the rest of the app.
-   - `transform-style: preserve-3d` + `perspective` are kept so the
-     rotateY flip still reads as a real 3D flip rather than a flat scale.
-   - Colors swapped to the site's green/gold palette instead of the
-     original red (#ed363a) accent.
-   - Used inside a `motion.div` (variants={scaleIn}) in the Overview
-     section below, so it still fades/scales in on scroll exactly like
-     the rest of the "Who We Are" section did with the old panel. */
-const WhoWeAreFlipCard = () => (
-  <div className="wwa-stage">
-    <div className="wwa-card">
-      {/* Image panel — flips open on hover */}
-      <div className="wwa-img-container">
-        <img src={whoWeAreImg} alt="Mydex International — who we are" />
-      </div>
-
-      {/* Details panel — revealed underneath once the image flips away */}
-      <div className="wwa-card-details">
-        <p className="wwa-eyebrow">Est. 1956 · Unjha, Gujarat</p>
-        <h2>Mydex International</h2>
-        <p className="wwa-text">
-          Three generations of sourcing, grading and exporting dry fruits,
-          spices and masala — the same family, the same standard, since 1956.
-        </p>
-        <div className="wwa-tags">
-          <span>70+ Years</span>
-          <span>3 Generations</span>
-          <span>30+ Countries</span>
-        </div>
-      </div>
-    </div>
-
-    <style>{`
-      .wwa-stage {
-        display: flex;
-        justify-content: center;
-        padding: 40px 0 60px;
-      }
-
-      .wwa-card {
-        position: relative;
-        width: 100%;
-        max-width: 340px;
-        height: 440px;
-        background: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        transform-style: preserve-3d;
-        transform: perspective(2000px);
-        transition: transform 1s, box-shadow 1s;
-        box-shadow: inset 100px 0 50px rgba(0,0,0,0.5), 0 20px 45px -15px rgba(18,59,41,0.25);
-      }
-
-      .wwa-card:hover {
-        z-index: 20;
-        transform: perspective(2000px) rotate(-10deg);
-        box-shadow: inset 20px 0 50px rgba(0,0,0,0.5), 0 30px 60px -15px rgba(18,59,41,0.35);
-      }
-
-      .wwa-img-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border: 1px solid rgba(200,155,60,0.35);
-        border-radius: 16px;
-        box-sizing: border-box;
-        overflow: hidden;
-        transform-origin: left;
-        z-index: 2;
-        transition: transform 1s;
-      }
-
-      .wwa-img-container img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-
-      .wwa-card:hover .wwa-img-container {
-        transform: rotateY(-135deg);
-      }
-
-      .wwa-card-details {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        box-sizing: border-box;
-        padding: 32px 28px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: linear-gradient(150deg, #F5E6C8 0%, #ffffff 65%);
-      }
-
-      .wwa-eyebrow {
-        margin: 0 0 8px;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: #C89B3C;
-      }
-
-      .wwa-card-details h2 {
-        margin: 0;
-        padding: 0.15em 0 0.4em;
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6em;
-        font-weight: 700;
-        color: #123B29;
-      }
-
-      .wwa-card-details .wwa-text {
-        margin: 0;
-        padding: 0;
-        font-size: 0.92em;
-        line-height: 1.6;
-        color: #4b5563;
-      }
-
-      .wwa-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 20px;
-      }
-
-      .wwa-tags span {
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #123B29;
-        background: rgba(200,155,60,0.15);
-        border: 1px solid rgba(200,155,60,0.4);
-        border-radius: 999px;
-        padding: 5px 12px;
-      }
-    `}</style>
+   Naya version: same "offset frame" style jo already CategoryPage me use
+   ho rahi hai (green shadow block + image on top) — poori site me consistent
+   look, aur animation sirf ek simple scroll-in fade/scale hai (parent
+   motion.div ka `scaleIn` variant use karta hai, jo already Overview me
+   define hai) — koi hover-triggered flip nahi, hamesha visible rehta hai. */
+const WhoWeAreImage = () => (
+  <div className="relative mx-auto w-full max-w-md">
+    <div className="absolute -bottom-4 -left-4 h-full w-full rounded-2xl bg-mydex-green" />
+    <img
+      src={whoWeAreImg}
+      alt="Mydex International — who we are"
+      className="relative z-10 h-[440px] w-full rounded-2xl object-cover shadow-premium"
+    />
   </div>
 );
 
@@ -311,6 +176,37 @@ const Who3DPanel = () => {
     </div>
   );
 };
+
+/* ─── WHO WE ARE — STAT TAGS ROW ─────────────────────────────────────────────
+   🆕 NEW: teen tags ("70+ Years", "3 Generations", "30+ Countries") ab ek
+   single row me dikhte hain, image ke neeche. `flex-nowrap` use kiya hai
+   taaki wrap na ho, aur mobile par thoda gap/padding kam kiya hai taaki
+   sab teen ek hi line me fit ho jaayein. Har tag apni jagah par ek chhota
+   fade+rise animation ke saath scroll-in par aata hai (staggered). */
+const statTags = ["70+ Years", "3 Generations", "30+ Countries"];
+
+const WhoWeAreStatsRow = () => (
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.6 }}
+    variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
+    className="mt-8 flex flex-nowrap items-center justify-center gap-2 sm:gap-4"
+  >
+    {statTags.map((tag) => (
+      <motion.span
+        key={tag}
+        variants={{
+          hidden: { opacity: 0, y: 12 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+        }}
+        className="whitespace-nowrap rounded-full border border-mydex-gold/40 bg-mydex-cream px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-mydex-green shadow-sm sm:px-4 sm:text-xs"
+      >
+        {tag}
+      </motion.span>
+    ))}
+  </motion.div>
+);
 
 /* ─── MISSION VISION CARD ─────────────────────────────────────────────────── */
 const MissionVisionCard = ({ item }) => (
@@ -521,7 +417,7 @@ export const Overview = () => (
           className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] items-start"
         >
           <motion.div variants={scaleIn} className="relative mx-auto w-full max-w-md">
-            <WhoWeAreFlipCard />
+            <WhoWeAreImage />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -531,21 +427,26 @@ export const Overview = () => (
             >
               Est.<br />1956<br />Unjha
             </motion.div>
+
+            {/* 🆕 Teeno stat tags ab ek row me, image ke neeche */}
+            <WhoWeAreStatsRow />
           </motion.div>
 
           <motion.div variants={fadeRight} className="space-y-6 pt-2 lg:pt-4">
-            <p className="text-gray-600 leading-relaxed">
-              Mydex International is a{" "}
-              <span className="font-semibold text-mydex-green">70-year-old company</span> — founded
-              in 1956 in Unjha, Gujarat, one of India's oldest and most trusted spice trading hubs
-              — and still family-run today. What started as a small dry fruits, spices and masala
-              trading business has stood through three generations, changing markets and changing
-              times, without ever changing the one thing that built it:{" "}
-              <span className="italic text-mydex-green">our word.</span>
-            </p>
+          <p className="text-gray-600 leading-relaxed">
+  Mydex International is a{" "}
+  <span className="font-semibold text-mydex-green">
+    third-generation family business
+  </span>{" "}
+  established in 2012. Built on generations of experience in the dry fruits,
+  spices, and masala trade, we bring together traditional knowledge with a
+  modern approach to sourcing, quality, and international trade. Since 2012,
+  our commitment has remained the same:{" "}
+  <span className="italic text-mydex-green">quality, trust, and our word.</span>
+</p>
             <blockquote className="border-l-4 border-mydex-gold pl-5 py-1">
               <p className="text-sm text-gray-500 leading-relaxed">
-                For seven decades, we haven't chased quick sales. We've built loyalty — the kind
+                For seven decades, we haven't chased quick sales. We've built loyalty the kind
                 where customers return year after year, not because they have to, but because they
                 know exactly what they're getting: honest grading, real quality, and a business
                 that treats every order like it matters. That's not old-fashioned thinking. It's
@@ -561,7 +462,7 @@ export const Overview = () => (
               Every partnership, whether it has run for decades or is just beginning, receives the
               same transparency, fair dealing and respect. At Mydex International, every handshake
               turns into a family relation. The company is led today by{" "}
-              <span className="font-semibold text-mydex-green">Mr. Dushyant Patel, CEO.</span>
+              <span className="font-semibold text-mydex-green">3 Brothers Dushyant Patel, Mikin Patel and Yax Patel</span>
             </p>
             <p className="text-gray-600 leading-relaxed">
               All sourcing, grading, processing and manufacturing take place at our own facility in
@@ -581,6 +482,10 @@ export const Overview = () => (
                   label: "Hyderabad Office — Est. 1990",
                   desc: "Dedicated export documentation, buyer communication and international logistics coordination.",
                 },
+              {
+  label: "Imports & Exports — Since 2012",
+  desc: "Trusted import and export expertise since 2012, with seamless documentation, buyer coordination, and international logistics support.",
+},
               ].map((loc) => (
                 <div key={loc.label} className="rounded-lg border border-mydex-gold/30 bg-white p-4 shadow-sm">
                   <p className="text-xs font-semibold tracking-wider text-mydex-green uppercase mb-1">{loc.label}</p>

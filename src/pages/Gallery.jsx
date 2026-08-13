@@ -75,6 +75,16 @@ const Gallery = () => {
     [filter]
   );
 
+  // 🔧 FIX: PageHero pehle bina `image` prop ke call ho raha tha, isliye hero
+  // section me background image nahi dikh rahi thi (jabki CategoryPage,
+  // ProductDetail, AboutHero — sabme image prop pass hota hai).
+  // Yahan koi dedicated "gallery hero" asset import nahi kiya (kyunki uska
+  // filename pata nahi tha aur galat path se build hi tut sakta tha) —
+  // iske bajaye, already existing `galleryItems` data se pehli image use
+  // kar rahe hain hero background ke liye. Yeh hamesha safe hai (koi naya
+  // broken import nahi) aur relevant bhi (asli gallery photo hi dikhega).
+  const heroImage = galleryItems?.[0]?.image;
+
   const openLightbox = (item) => {
     const index = items.findIndex((i) => i.title === item.title);
     setLightbox({ item, index });
@@ -88,7 +98,11 @@ const Gallery = () => {
 
   return (
     <>
-      <PageHero title="Luxury Gallery" subtitle="Factory, warehouse, packaging and export operations." />
+      <PageHero
+        title="Gallery"
+        subtitle="Factory, warehouse, packaging and export operations."
+        image={heroImage}
+      />
 
       <section className="section-pad relative overflow-hidden bg-mydex-beige">
         {/* Soft decorative blur accents */}

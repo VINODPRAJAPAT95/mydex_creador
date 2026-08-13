@@ -8,6 +8,20 @@ import footerBg from "../assets/images/footer-bg.png";
 /* Local logo image — replace with your actual logo asset */
 import logo from "../assets/logo.png";
 
+/* 🔧 Social links: Facebook & LinkedIn are the real, live company links.
+   Instagram & the mail icon are left as sensible placeholders — swap
+   Instagram's "#" for the real profile URL whenever you have it. The
+   LinkedIn URL below is the clean profile link (the one you sent was a
+   linkedin.com/authwall redirect with session tracking params, which
+   isn't reliable to hardcode — this is the actual destination it points
+   to). */
+const socialLinks = [
+  { Icon: FaFacebookF, href: "https://www.facebook.com/people/Mydex-international/61592850341942/", external: true },
+  { Icon: FaLinkedinIn, href: "https://www.linkedin.com/in/mydex-international-434b0b428", external: true },
+  { Icon: FaInstagram, href: "#", external: false },
+  { Icon: FaEnvelope, href: `mailto:${company.email}`, external: false },
+];
+
 const Footer = () => {
   // Animation variants
   const containerVariants = {
@@ -175,10 +189,12 @@ const Footer = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {[FaFacebookF, FaLinkedinIn, FaInstagram, FaEnvelope].map((Icon, i) => (
+            {socialLinks.map(({ Icon, href, external }, i) => (
               <motion.a
                 key={i}
-                href="#"
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
                 className="grid h-9 w-9 place-items-center rounded-full border border-mydex-gold text-mydex-gold transition"
                 variants={socialIconVariants}
                 custom={i}
