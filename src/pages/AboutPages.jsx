@@ -595,10 +595,11 @@ export const Overview = () => (
                   label: "Unjha, Gujarat — Est. 1956",
                   desc: "Our heartland — sourcing, grading, processing and packing, fully in-house. Nothing outsourced, nothing left to chance.",
                 },
-                {
-                  label: "Hyderabad Office — Est. 1990",
-                  desc: "Dedicated export documentation, buyer communication and international logistics coordination.",
-                },
+               {
+  label: "Hyderabad Office — Est. 1990",
+  desc: "Established our Hyderabad office in 1990, strengthening our business presence and expanding our operations in the Pan Indian markets and Every of India.",
+},
+
  {
   label: "Global Import & Export — Since 2012",
   desc: "Building on our legacy from Unjha (1956) and Hyderabad (1990), we began our dedicated import and export operations in 2012, connecting premium Indian products with markets worldwide through trusted sourcing, seamless documentation, and reliable international logistics.",

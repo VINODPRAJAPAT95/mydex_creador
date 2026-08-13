@@ -1096,7 +1096,7 @@ const Home = () => {
               >
                 {/* Icon box with an offset gold frame behind it */}
                 <div className="relative flex-shrink-0">
-                  <span className="absolute -bottom-2 -right-2 h-14 w-14 border-2 border-mydex-gold" />
+                  {/* <span className=" -right-2 h-14 w-14 border-2 border-mydex-gold" /> */}
                   <div className="relative flex h-14 w-14 items-center justify-center bg-mydex-green text-mydex-gold">
                     {reason.icon}
                   </div>

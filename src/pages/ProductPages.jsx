@@ -301,7 +301,7 @@ export const ProductDetail = () => {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button to="/get-quote" variant="gold">Request Quote</Button>
               <Button
-                href={`https://wa.me/919876543210?text=${encodeURIComponent(`Inquiry for ${product.name}`)}`}
+                href={`https://wa.me/9000001026?text=${encodeURIComponent(`Inquiry for ${product.name}`)}`}
                 variant="green"
               >
                 WhatsApp Inquiry

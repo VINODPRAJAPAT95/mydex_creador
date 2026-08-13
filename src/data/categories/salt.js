@@ -17,7 +17,7 @@ export const saltCategory = {
 
 export const saltProducts = createProducts(saltCategory.slug, categoryImage, [
 {
-  name: "Himalayan Pink Salt",
+  name: "Himalayan Pink Salt (Sendha Namak)",
   image: himalayanImg,
   tagline: "From the Heart of the Himalayas. Naturally Beautiful. Eternally Pure.",
   description:
@@ -39,7 +39,7 @@ export const saltProducts = createProducts(saltCategory.slug, categoryImage, [
   ],
 },
 {
-  name: "Iodized Salt",
+  name: "Iodized Salt (Namak)",
   image: iodizedImg,
   tagline: "Essential. Pure. Perfectly Balanced. The Soul of Every Kitchen.",
   description:

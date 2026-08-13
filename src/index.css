@@ -139,3 +139,43 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ===== Google Translate widget — hide all auto-injected UI ===== */
+/* Top banner that pushes page content down */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Prevent page from shifting down when banner tries to appear */
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+/* Small Google icon/gadget that sometimes appears */
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+/* Bottom-right floating "Powered by Google Translate" balloon */
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* The actual hidden translate widget + iframe */
+#google_translate_element,
+.skiptranslate {
+  display: none !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Body classes Google adds after translation that can add padding */
+body.translated-ltr,
+body.translated-rtl {
+  top: 0 !important;
+}

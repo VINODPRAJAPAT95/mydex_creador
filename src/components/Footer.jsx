@@ -18,8 +18,16 @@ import logo from "../assets/logo.png";
 const socialLinks = [
   { Icon: FaFacebookF, href: "https://www.facebook.com/people/Mydex-international/61592850341942/", external: true },
   { Icon: FaLinkedinIn, href: "https://www.linkedin.com/in/mydex-international-434b0b428", external: true },
-  { Icon: FaInstagram, href: "#", external: false },
-  { Icon: FaEnvelope, href: `mailto:${company.email}`, external: false },
+ {
+  Icon: FaInstagram,
+  href: "https://www.instagram.com/mydex_international?igsh=MWpzYTVyb2lwcmppYw==",
+  external: true,
+},
+  {
+  Icon: FaEnvelope,
+  href: "/contact",
+  external: false,
+},
 ];
 
 const Footer = () => {
