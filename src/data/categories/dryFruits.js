@@ -191,6 +191,7 @@ varieties: [
 },
  {
   name: "Raisin (Kishmish)",
+  image: raisinImg,
   tagline: "Naturally Sweet Energy Bites",
 
   description:

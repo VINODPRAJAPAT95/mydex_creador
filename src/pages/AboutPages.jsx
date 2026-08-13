@@ -126,24 +126,141 @@ const AboutHero = ({ eyebrow, title, subtitle, image }) => (
   </section>
 );
 
-/* ─── WHO WE ARE — FRAMED IMAGE ──────────────────────────────────────────────
-   🔧 REPLACED: Purana "book flip" 3D hover card (WhoWeAreFlipCard) yahan se
-   hata diya gaya hai — woh complex tha (preserve-3d, rotateY(-135deg) hover
-   flip, multiple keyframe animations) aur maintain karna mushkil tha.
-
-   Naya version: same "offset frame" style jo already CategoryPage me use
-   ho rahi hai (green shadow block + image on top) — poori site me consistent
-   look, aur animation sirf ek simple scroll-in fade/scale hai (parent
-   motion.div ka `scaleIn` variant use karta hai, jo already Overview me
-   define hai) — koi hover-triggered flip nahi, hamesha visible rehta hai. */
+/* ─── WHO WE ARE — FLIP-OPEN IMAGE ───────────────────────────────────────────
+   🆕 UPDATED: Image ab hover par ek book-cover ki tarah khulta hai (left edge
+   se hinge karke), neeche ek "Who We Are" gold/green info panel reveal hota
+   hai. Fully responsive — height same breakpoints follow karti hai jaise
+   pehle thi (280 → 340 → 400 → 440px), taaki "Est. 1956" badge aur stats
+   row bilkul waise hi align rahein jaise pehle the. Mobile par hinge angle
+   thoda kam kiya hai (-100deg) taaki flap viewport se bahar na nikle, aur
+   keyboard users ke liye :focus-within bhi handle kiya hai. */
 const WhoWeAreImage = () => (
   <div className="relative mx-auto w-full max-w-md">
-    <div className="absolute -bottom-4 -left-4 h-full w-full rounded-2xl bg-mydex-green" />
-    <img
-      src={whoWeAreImg}
-      alt="Mydex International — who we are"
-      className="relative z-10 h-[440px] w-full rounded-2xl object-cover shadow-premium"
-    />
+    <div className="who-flip-outer">
+      <div className="who-flip-card">
+        {/* front — the photo, hinges open on hover like a door/book cover */}
+        <div className="who-flip-img">
+          <img src={whoWeAreImg} alt="Mydex International — who we are" />
+        </div>
+
+        {/* back — revealed underneath as the image swings open */}
+        <div className="who-flip-back">
+          <svg viewBox="0 0 200 200" className="who-flip-back-pattern" aria-hidden="true">
+            {Array.from({ length: 100 }).map((_, i) => {
+              const cols = 10;
+              const x = (i % cols) * 20 + 10;
+              const y = Math.floor(i / cols) * 20 + 10;
+              const seed = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+              return seed - Math.floor(seed) > 0.5
+                ? <circle key={i} cx={x} cy={y} r="1.3" fill="#C89B3C" />
+                : null;
+            })}
+          </svg>
+
+          <div className="who-flip-back-inner">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-mydex-gold mb-2">
+              Since 1956
+            </p>
+            <h3 className="font-serif text-2xl text-white mb-3">Who We Are</h3>
+            <p className="text-xs leading-relaxed text-white/75">
+              Three generations of trust — sourced, graded and packed at our
+              own facility in Unjha, Gujarat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>{`
+      .who-flip-outer {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        perspective: 1800px;
+      }
+      @media (min-width: 640px)  { .who-flip-outer { height: 340px; } }
+      @media (min-width: 768px)  { .who-flip-outer { height: 400px; } }
+      @media (min-width: 1024px) { .who-flip-outer { height: 440px; } }
+
+      .who-flip-card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transform: perspective(1800px);
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        border-radius: 16px;
+        box-shadow: 0 20px 45px -15px rgba(18, 59, 41, 0.35);
+      }
+      .who-flip-outer:hover .who-flip-card,
+      .who-flip-outer:focus-within .who-flip-card {
+        transform: perspective(1800px) rotate(-4deg);
+        z-index: 25;
+      }
+
+      .who-flip-img {
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 3px solid rgba(200, 155, 60, 0.35);
+        transform-origin: left center;
+        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 2;
+        box-shadow: inset -40px 0 40px rgba(0, 0, 0, 0.25);
+      }
+      .who-flip-img img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .who-flip-outer:hover .who-flip-img,
+      .who-flip-outer:focus-within .who-flip-img {
+        transform: rotateY(-130deg);
+      }
+
+      .who-flip-back {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        border-radius: 16px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #123B29 0%, #1a4a30 55%, #0E2E20 100%);
+        border: 1px solid rgba(200, 155, 60, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.75rem;
+      }
+      .who-flip-back-pattern {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.25;
+      }
+      .who-flip-back-inner {
+        position: relative;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+      }
+      .who-flip-outer:hover .who-flip-back-inner,
+      .who-flip-outer:focus-within .who-flip-back-inner {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 640px) {
+        .who-flip-outer:hover .who-flip-img,
+        .who-flip-outer:focus-within .who-flip-img {
+          transform: rotateY(-100deg);
+        }
+      }
+    `}</style>
   </div>
 );
 
@@ -462,7 +579,7 @@ export const Overview = () => (
               Every partnership, whether it has run for decades or is just beginning, receives the
               same transparency, fair dealing and respect. At Mydex International, every handshake
               turns into a family relation. The company is led today by{" "}
-              <span className="font-semibold text-mydex-green">3 Brothers Dushyant Patel, Mikin Patel and Yax Patel</span>
+              <span className="font-semibold text-mydex-green">Three Brothers Dushyant Patel, Mikin Patel and Yax Patel</span>
             </p>
             <p className="text-gray-600 leading-relaxed">
               All sourcing, grading, processing and manufacturing take place at our own facility in
@@ -482,9 +599,9 @@ export const Overview = () => (
                   label: "Hyderabad Office — Est. 1990",
                   desc: "Dedicated export documentation, buyer communication and international logistics coordination.",
                 },
-              {
-  label: "Imports & Exports — Since 2012",
-  desc: "Trusted import and export expertise since 2012, with seamless documentation, buyer coordination, and international logistics support.",
+ {
+  label: "Global Import & Export — Since 2012",
+  desc: "Building on our legacy from Unjha (1956) and Hyderabad (1990), we began our dedicated import and export operations in 2012, connecting premium Indian products with markets worldwide through trusted sourcing, seamless documentation, and reliable international logistics.",
 },
               ].map((loc) => (
                 <div key={loc.label} className="rounded-lg border border-mydex-gold/30 bg-white p-4 shadow-sm">
