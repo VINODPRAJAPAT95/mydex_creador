@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { aboutLinks, allProducts, productCategories } from "../data/siteData";
 import Button from "./ui/Button";
 import BrandLogo from "./BrandLogo";
+import LanguageDropdown from "./LanguageDropdown";
 
 /* Local HD background image for the navbar — replace with your actual asset */
 import navbarBg from "../assets/images/navbar-bg.png";
@@ -246,6 +247,9 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* 🆕 Language Dropdown — sits right before the search icon */}
+          <LanguageDropdown />
+
           {/* Search */}
           <div className="relative hidden md:block" ref={searchRef}>
             <button
@@ -364,14 +368,19 @@ const Navbar = () => {
               animate="visible"
               className="space-y-1 text-sm uppercase tracking-wider"
             >
-              <motion.div variants={itemVariants} custom={0}>
+              {/* 🆕 Language Dropdown — top of the mobile menu, own row */}
+              <motion.div variants={itemVariants} custom={0} className="flex justify-start border-b border-white/10 pb-3">
+                <LanguageDropdown />
+              </motion.div>
+
+              <motion.div variants={itemVariants} custom={1}>
                 <Link to="/" className="block border-b border-white/10 py-3">
                   Home
                 </Link>
               </motion.div>
 
               {/* About — tap to expand */}
-              <motion.div variants={itemVariants} custom={1} className="border-b border-white/10">
+              <motion.div variants={itemVariants} custom={2} className="border-b border-white/10">
                 <button
                   onClick={() => setMobileAboutOpen((v) => !v)}
                   className="flex w-full items-center justify-between py-3 text-left text-mydex-gold"
@@ -408,7 +417,7 @@ const Navbar = () => {
               </motion.div>
 
               {/* Products — tap to expand */}
-              <motion.div variants={itemVariants} custom={2} className="border-b border-white/10">
+              <motion.div variants={itemVariants} custom={3} className="border-b border-white/10">
                 <button
                   onClick={() => setMobileProductsOpen((v) => !v)}
                   className="flex w-full items-center justify-between py-3 text-left text-mydex-gold"
@@ -444,22 +453,22 @@ const Navbar = () => {
                 </AnimatePresence>
               </motion.div>
 
-              <motion.div variants={itemVariants} custom={3}>
+              <motion.div variants={itemVariants} custom={4}>
                 <Link to="/gallery" className="block border-b border-white/10 py-3">
                   Gallery
                 </Link>
               </motion.div>
-              <motion.div variants={itemVariants} custom={4}>
+              <motion.div variants={itemVariants} custom={5}>
                 <Link to="/blog" className="block border-b border-white/10 py-3">
                   Blog
                 </Link>
               </motion.div>
-              <motion.div variants={itemVariants} custom={5}>
+              <motion.div variants={itemVariants} custom={6}>
                 <Link to="/contact" className="block border-b border-white/10 py-3">
                   Contact
                 </Link>
               </motion.div>
-              <motion.div variants={itemVariants} custom={6} className="pt-4">
+              <motion.div variants={itemVariants} custom={7} className="pt-4">
                 <Link
                   to="/get-quote"
                   className="block bg-mydex-gold px-4 py-3 text-center font-semibold text-mydex-green"
