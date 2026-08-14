@@ -4,6 +4,11 @@ import Button from "../components/ui/Button";
 import PageHero from "../components/ui/PageHero";
 import { productCategories } from "../data/siteData";
 
+/* Local background image for the Get Quote page hero.
+   Put your real banner photo at this exact path/filename:
+   src/assets/images/get-quote-hero.png */
+import quoteHeroBg from "../assets/images/get-quote-hero.png";
+
 /* =========================================================
    WATERMARK
 ========================================================= */
@@ -115,11 +120,15 @@ const GetQuote = () => {
     <>
       {/* ===================================================
           PAGE HERO
+          `image` prop passed through — PageHero renders it as a
+          full-bleed background with a mydex-green/70 overlay and
+          the wavy bottom border, matching the Home hero style.
       =================================================== */}
 
       <PageHero
         title="Request a Custom Quote"
         subtitle="Share product, quantity and destination — our trade team will respond promptly."
+        image={quoteHeroBg}
       />
 
       {/* ===================================================

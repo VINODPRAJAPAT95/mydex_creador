@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import {
@@ -20,6 +22,8 @@ const GREEN_2 = "#0E2E20";
 const GOLD = "#C89B3C";
 const GOLD_LIGHT = "#E4C368";
 const CREAM = "#F4EEE0";
+
+const MotionLink = motion(Link);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -53,44 +57,42 @@ const Field = ({ as: Tag = "input", className = "", ...props }) => (
   />
 );
 
-// ✅ FIX: Component function now wraps everything — useState & handleSubmit
-//         must live INSIDE the component, not at module scope.
 const Contact = () => {
   const [status, setStatus] = useState("idle");
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("sending");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
 
-  const form = e.currentTarget;
+    const form = e.currentTarget;
 
-  try {
-    const response = await emailjs.sendForm(
-      "service_fjuvpiv",
-      "template_13no2ik",
-      form,
-      {
-        publicKey: "5gEv7BVsDTnN3b8Uy",
-      }
-    );
+    try {
+      const response = await emailjs.sendForm(
+        "service_fjuvpiv",
+        "template_13no2ik",
+        form,
+        {
+          publicKey: "5gEv7BVsDTnN3b8Uy",
+        }
+      );
 
-    console.log("Email sent:", response.status, response.text);
+      console.log("Email sent:", response.status, response.text);
 
-    setStatus("sent");
-    form.reset();
+      setStatus("sent");
+      form.reset();
 
-    setTimeout(() => {
-      setStatus("idle");
-    }, 3500);
-  } catch (error) {
-    console.error("EmailJS Error:", error);
-    setStatus("error");
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3500);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
 
-    setTimeout(() => {
-      setStatus("idle");
-    }, 4000);
-  }
-};
+      setTimeout(() => {
+        setStatus("idle");
+      }, 4000);
+    }
+  };
 
   return (
     <>
@@ -102,7 +104,6 @@ const Contact = () => {
           className="absolute inset-0 -z-30 h-full w-full object-cover"
         />
 
-        {/* Directional gradient */}
         <div
           className="absolute inset-0 -z-20"
           style={{
@@ -110,7 +111,6 @@ const Contact = () => {
           }}
         />
 
-        {/* Top/bottom vignette */}
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -118,7 +118,6 @@ const Contact = () => {
           }}
         />
 
-        {/* Gold glow */}
         <div
           className="pointer-events-none absolute -left-24 top-1/2 -z-10 h-[420px] w-[420px] -translate-y-1/2 rounded-full blur-3xl"
           style={{ backgroundColor: `${GOLD}22` }}
@@ -243,8 +242,6 @@ const Contact = () => {
               <Field name="phone" placeholder="Phone Number" />
             </div>
 
-            {/* ✅ FIX: Removed redundant first item from subjects array.
-                       Using a proper disabled placeholder <option> instead. */}
             <div className="relative mt-4">
               <select
                 required
@@ -293,7 +290,6 @@ const Contact = () => {
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </motion.button>
 
-            {/* ✅ ADDED: Visible feedback messages below button */}
             {status === "sent" && (
               <p className="mt-3 text-sm font-medium" style={{ color: GREEN }}>
                 Thank you! We'll get back to you shortly.
@@ -351,7 +347,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* WhatsApp quick-contact strip */}
+            {/* WhatsApp strip */}
             <a
               href={`https://wa.me/${(company?.whatsapp ?? "919000001026").replace(/[^\d]/g, "")}`}
               target="_blank"
@@ -380,14 +376,14 @@ const Contact = () => {
             className="relative overflow-hidden rounded-2xl shadow-sm"
             style={{ height: 420 }}
           >
-          <iframe
-  title="Mydex map"
-  className="absolute inset-0 h-full w-full border-0"
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.741322865268!2d78.47399229999999!3d17.376176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9780be57533b%3A0xc4dba7a4fdbef564!2s12%2C%20Siddiamber%20Bazar%2C%20Begum%20Bazar%2C%20Afzal%20Gunj%2C%20Hyderabad%2C%20Telangana%20500012!5e0!3m2!1sen!2sin!4v1786618889554!5m2!1sen!2sin"
-  loading="lazy"
-  allowFullScreen
-  referrerPolicy="strict-origin-when-cross-origin"
-/>
+            <iframe
+              title="Mydex map"
+              className="absolute inset-0 h-full w-full border-0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.741322865268!2d78.47399229999999!3d17.376176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9780be57533b%3A0xc4dba7a4fdbef564!2s12%2C%20Siddiamber%20Bazar%2C%20Begum%20Bazar%2C%20Afzal%20Gunj%2C%20Hyderabad%2C%20Telangana%20500012!5e0!3m2!1sen!2sin!4v1786618889554!5m2!1sen!2sin"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -448,8 +444,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <motion.a
-            href="/get-quote"
+          {/* ✅ FIXED: motion(Link) instead of motion.a — no page reload, no 404 */}
+          <MotionLink
+            to="/get-quote"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             className="group inline-flex shrink-0 items-center gap-2 rounded-md px-7 py-3 text-xs font-semibold uppercase tracking-wider text-white"
@@ -457,7 +454,7 @@ const Contact = () => {
           >
             Get a Quote
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-          </motion.a>
+          </MotionLink>
         </motion.div>
       </section>
     </>

@@ -1,37 +1,27 @@
-import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaStar } from "react-icons/fa";
+import { FaDownload, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { company, productCategories } from "../data/siteData";
 
-/* Local HD background image for the footer — replace with your actual asset */
 import footerBg from "../assets/images/footer-bg.png";
-/* Local logo image — replace with your actual logo asset */
 import logo from "../assets/logo.png";
 
-/* 🔧 Social links: Facebook & LinkedIn are the real, live company links.
-   Instagram & the mail icon are left as sensible placeholders — swap
-   Instagram's "#" for the real profile URL whenever you have it. The
-   LinkedIn URL below is the clean profile link (the one you sent was a
-   linkedin.com/authwall redirect with session tracking params, which
-   isn't reliable to hardcode — this is the actual destination it points
-   to). */
 const socialLinks = [
   { Icon: FaFacebookF, href: "https://www.facebook.com/people/Mydex-international/61592850341942/", external: true },
   { Icon: FaLinkedinIn, href: "https://www.linkedin.com/in/mydex-international-434b0b428", external: true },
- {
-  Icon: FaInstagram,
-  href: "https://www.instagram.com/mydex_international?igsh=MWpzYTVyb2lwcmppYw==",
-  external: true,
-},
   {
-  Icon: FaEnvelope,
-  href: "/contact",
-  external: false,
-},
+    Icon: FaInstagram,
+    href: "https://www.instagram.com/mydex_international?igsh=MWpzYTVyb2lwcmppYw==",
+    external: true,
+  },
+  {
+    Icon: FaEnvelope,
+    href: "/contact",
+    external: false,
+  },
 ];
 
 const Footer = () => {
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -123,9 +113,6 @@ const Footer = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* "EST. 1956" watermark — huge, faint, heritage-marking text sitting
-          in the empty background space behind the footer content. Purely
-          decorative, so it's aria-hidden and ignores pointer events. */}
       <motion.p
         aria-hidden="true"
         initial={{ opacity: 0 }}
@@ -139,6 +126,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="container-lux relative z-10 grid gap-10 px-4 py-16 md:grid-cols-2 md:px-8 lg:grid-cols-5">
+
         {/* Brand Section */}
         <motion.div
           className="lg:col-span-2"
@@ -173,7 +161,6 @@ const Footer = () => {
             Global importer & exporter of premium dry fruits, spices, herbs, seeds, pulses and agro commodities.
           </motion.p>
 
-          {/* 5-star rating badge — quick trust signal under the brand blurb */}
           <motion.div
             className="mt-4 flex items-center gap-2"
             variants={linkVariants}
@@ -252,6 +239,28 @@ const Footer = () => {
                 </Link>
               </motion.div>
             ))}
+
+            {/* ✅ Download Brochure Button */}
+            <motion.div
+              variants={linkVariants}
+              custom={5}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="pt-2"
+            >
+              <motion.a
+                href="/brochure.pdf"
+                download="Mydex-International-Brochure.pdf"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded border border-mydex-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-mydex-gold transition hover:bg-mydex-gold hover:text-mydex-green"
+              >
+                <FaDownload size={11} />
+                Download Brochure
+              </motion.a>
+            </motion.div>
+
           </motion.div>
         </motion.div>
 
@@ -374,7 +383,7 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      {/* Bottom Section - Copyright & Credits */}
+      {/* Bottom Section */}
       <motion.div
         className="relative z-10 border-t border-white/10 px-4 py-4 text-xs text-white/60 md:px-8"
         initial={{ opacity: 0 }}

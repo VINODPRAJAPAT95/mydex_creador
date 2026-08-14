@@ -540,9 +540,9 @@ export const Overview = () => (
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-              className="absolute -bottom-2 left-1/2 z-30 flex h-24 w-24 -translate-x-1/2 flex-col items-center justify-center rounded-full border border-mydex-gold bg-mydex-green text-center text-[10px] uppercase tracking-widest text-mydex-gold shadow-gold leading-snug"
+              // className="absolute -bottom-2 left-1/2 z-30 flex h-24 w-24 -translate-x-1/2 flex-col items-center justify-center rounded-full border border-mydex-gold bg-mydex-green text-center text-[10px] uppercase tracking-widest text-mydex-gold shadow-gold leading-snug"
             >
-              Est.<br />1956<br />Unjha
+          
             </motion.div>
 
             {/* 🆕 Teeno stat tags ab ek row me, image ke neeche */}
@@ -597,7 +597,7 @@ export const Overview = () => (
                 },
                {
   label: "Hyderabad Office — Est. 1990",
-  desc: "Established our Hyderabad office in 1990, strengthening our business presence and expanding our operations in the Pan Indian markets and Every of India.",
+  desc: "Established our Hyderabad office in 1990, strengthening our business presence and expanding our operations in the Pan Indian markets and Every edge of India.",
 },
 
  {
@@ -886,9 +886,9 @@ export const GlobalNetwork = () => (
         <div className="grid gap-6 md:grid-cols-4">
           {[
             { n: 30,   s: "+", l: "Countries Served" },
-            { n: 1000, s: "+", l: "Happy Clients" },
-            { n: 500,  s: "+", l: "Products Exported" },
-            { n: 20,   s: "+", l: "Years Experience" },
+            { n: 470, s: "+", l: "Happy Clients" },
+            { n: 72,  s: "+", l: "Products Exported" },
+            { n: 70,   s: "+", l: "Years Experience" },
           ].map((x) => (
             <div key={x.l} className="rounded-xl bg-mydex-green p-6 text-center text-white">
               <p className="font-serif text-4xl text-mydex-gold">
