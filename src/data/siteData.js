@@ -3,7 +3,7 @@ export const company = {
   tagline: "Premium Quality. Global Reach.",
   phone: "+91 9000001026",
   email: "info@mydexinternational.com",
-  address: "12-6-513, Begum Bazar, Hyderabad, Telangana- 500012, India",
+  address: "15-6-513, Begum Bazar, Hyderabad, Telangana- 500012, India",
   hours: "Mon – Sat: 9:00 AM – 6:00 PM IST",
   whatsapp: "919000001026",
 };
